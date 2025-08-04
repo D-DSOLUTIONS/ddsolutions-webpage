@@ -950,12 +950,109 @@ async function initializeLanguage() {
     updateContent(currentLang);
 }
 
+// Premium Automation Showcase Functionality
+function initAutomationShowcase() {
+    // Animate statistics in global impact section on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statElements = entry.target.querySelectorAll('.stat-value');
+                statElements.forEach(stat => {
+                    const target = parseInt(stat.dataset.target);
+                    if (target) {
+                        animateNumber(stat, 0, target, 2500);
+                    }
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Observe the global impact statistics section
+    const globalImpact = document.querySelector('.global-impact');
+    if (globalImpact) {
+        observer.observe(globalImpact);
+    }
+    
+    // Add enhanced card interaction effects
+    const deptCards = document.querySelectorAll('.dept-card');
+    deptCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Add slight delay to stagger animations if multiple cards are hovered
+            setTimeout(() => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+            }, Math.random() * 100);
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+        
+        // Add click effect for mobile/touch devices
+        card.addEventListener('click', () => {
+            card.classList.add('clicked');
+            setTimeout(() => {
+                card.classList.remove('clicked');
+            }, 300);
+        });
+    });
+    
+    // Animate department statistics on scroll
+    const deptStatsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const text = stat.textContent;
+                    const numberMatch = text.match(/\d+/);
+                    if (numberMatch) {
+                        const number = parseInt(numberMatch[0]);
+                        const suffix = text.replace(/\d+/, '');
+                        animateNumber(stat, 0, number, 1500, suffix);
+                    }
+                });
+                deptStatsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.7 });
+    
+    // Observe all department cards for stats animation
+    deptCards.forEach(card => {
+        deptStatsObserver.observe(card);
+    });
+}
+
+// Animate numbers function
+function animateNumber(element, start, end, duration, customSuffix = null) {
+    const startTime = performance.now();
+    const originalText = element.textContent;
+    const suffix = customSuffix || originalText.replace(/\d+/g, '').trim();
+    
+    function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Use easing function for smoother animation
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(start + (end - start) * easedProgress);
+        
+        element.textContent = currentValue + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+        }
+    }
+    
+    requestAnimationFrame(updateNumber);
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     initializeLanguage();
     initThemeToggle();
     initChatbot();
     initROICalculator();
+    initAutomationShowcase();
     initPWA();
     initPushNotifications();
     
