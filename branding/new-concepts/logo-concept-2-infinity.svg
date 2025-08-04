@@ -1,0 +1,29 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concepto 2: Símbolo infinito con DD integrado -->
+  <defs>
+    <linearGradient id="infinity-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Símbolo infinito estilizado -->
+  <g transform="translate(32, 32)">
+    <!-- Primera D del infinito -->
+    <path d="M-20 -8 Q-10 -12, 0 -8 Q10 -4, 10 0 Q10 4, 0 8 Q-10 12, -20 8 Q-28 4, -28 0 Q-28 -4, -20 -8 Z" 
+          fill="none" 
+          stroke="url(#infinity-gradient)" 
+          stroke-width="3"/>
+    
+    <!-- Segunda D del infinito -->
+    <path d="M20 -8 Q10 -12, 0 -8 Q-10 -4, -10 0 Q-10 4, 0 8 Q10 12, 20 8 Q28 4, 28 0 Q28 -4, 20 -8 Z" 
+          fill="none" 
+          stroke="url(#infinity-gradient)" 
+          stroke-width="3"/>
+    
+    <!-- Punto central de conexión -->
+    <circle cx="0" cy="0" r="4" fill="url(#infinity-gradient)" />
+    <circle cx="0" cy="0" r="2" fill="#ffffff" />
+  </g>
+</svg>

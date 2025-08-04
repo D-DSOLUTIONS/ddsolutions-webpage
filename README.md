@@ -77,11 +77,22 @@ Recommended free ports: **8080**, 8888, 9000, 5000
 
 ```
 ddsolutions-website/
-├── index.html          # Main HTML file
+├── index.html          # Main website
+├── merch.html          # Official merchandising store
 ├── css/
 │   └── styles.css      # All styles
 ├── js/
 │   └── script.js       # JavaScript functionality
+├── branding/           # Complete brand assets
+│   ├── icons/
+│   │   └── logo-icon-base.svg
+│   ├── horizontal/
+│   │   └── logo-horizontal-digital-tech.svg
+│   ├── favicon/
+│   │   ├── favicon-digital-tech-16.svg
+│   │   └── favicon-digital-tech-32.svg
+│   └── dynamic-variations/
+│       └── logo-dynamic-v6-tech.svg
 ├── images/             # Image assets (if needed)
 ├── fonts/              # Custom fonts (if needed)
 ├── server.py           # Python development server
@@ -124,6 +135,22 @@ Users can manually change the language using the selector in the navigation bar.
 - ✅ **3D Interactive Elements** - Advanced hover effects with perspective and transforms
 - ✅ **Parallax Scrolling** - Multi-layer parallax effects for immersive experience
 - ✅ **Micro-Interactions** - Magnetic buttons, ripple effects, and smooth scroll indicators
+
+### 🛍️ Official Merchandising Store (NEW!)
+- ✅ **Professional Merchandise Page** - Complete merch.html with realistic garment visualizations
+- ✅ **Realistic SVG Garments** - Hand-crafted SVG paths for authentic clothing silhouettes
+- ✅ **Product Showcase** - T-shirts, polo shirts, hoodies, and snapback caps
+- ✅ **DIGITAL TECH Branding** - Logo v6 implementation across all merchandise
+- ✅ **Front & Back Views** - Complete garment visualization with logo placement
+- ✅ **Professional Pricing** - Competitive pricing structure for all products
+- ✅ **Responsive Design** - Mobile-optimized merchandise showcase
+
+### 🎯 DIGITAL TECH Logo System (v6)
+- ✅ **Professional Logo Selection** - Selected variant 6 "DIGITAL TECH" design
+- ✅ **Complete Brand Implementation** - Logo updated across entire website
+- ✅ **SVG Branding System** - Scalable icons, favicons, and horizontal layouts
+- ✅ **Multi-format Support** - 16px, 32px favicons and various logo variations
+- ✅ **Brand Consistency** - Unified DIGITAL TECH identity throughout all pages
 
 ### 🎯 Icon System (NEW!)
 - **Service Icons**: Neural AI networks, automation gears, code windows, strategy diagrams

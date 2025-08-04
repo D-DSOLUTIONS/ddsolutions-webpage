@@ -1,0 +1,34 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concepto 4: Onda de datos / flujo digital -->
+  <defs>
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#009928;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Ondas de datos -->
+  <g stroke="url(#wave-gradient)" fill="none">
+    <!-- Onda principal -->
+    <path d="M8 32 Q16 16, 24 32 T40 32 Q48 16, 56 32" stroke-width="3" />
+    
+    <!-- Ondas secundarias -->
+    <path d="M8 24 Q16 12, 24 24 T40 24 Q48 12, 56 24" stroke-width="2" opacity="0.7" />
+    <path d="M8 40 Q16 52, 24 40 T40 40 Q48 52, 56 40" stroke-width="2" opacity="0.7" />
+  </g>
+  
+  <!-- DD integrado en puntos de cruce -->
+  <g fill="url(#wave-gradient)">
+    <circle cx="24" cy="32" r="6" />
+    <circle cx="40" cy="32" r="6" />
+  </g>
+  
+  <!-- DD text -->
+  <text x="24" y="35" font-family="Arial, sans-serif" font-size="8" font-weight="bold" 
+        text-anchor="middle" fill="#ffffff">D</text>
+  <text x="40" y="35" font-family="Arial, sans-serif" font-size="8" font-weight="bold" 
+        text-anchor="middle" fill="#ffffff">D</text>
+</svg>

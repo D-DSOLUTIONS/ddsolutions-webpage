@@ -1,0 +1,31 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Single color version - Neon Green -->
+  <style>
+    .mono { fill: var(--dd-mono-color, #00ff41); }
+    .mono-stroke { stroke: var(--dd-mono-color, #00ff41); fill: none; }
+  </style>
+  
+  <!-- Main structure -->
+  <path d="M32 8 L50 16 L50 32 L44 40 L32 48 L20 40 L14 32 L14 16 Z" 
+        class="mono-stroke" 
+        stroke-width="2.5"/>
+  
+  <!-- DD simplified -->
+  <g transform="translate(20, 20)">
+    <path d="M0 0 L0 24 L12 24 C18 24 22 20 22 12 C22 4 18 0 12 0 Z" 
+          class="mono"/>
+    <path d="M16 3 L16 21 L24 21 C28 21 30 19 30 15 C30 11 28 9 24 9 L16 9 Z" 
+          class="mono" 
+          opacity="0.7"/>
+  </g>
+  
+  <!-- Central core -->
+  <circle cx="32" cy="32" r="4" class="mono"/>
+  <circle cx="32" cy="32" r="2" fill="#ffffff"/>
+  
+  <!-- Connection points -->
+  <circle cx="22" cy="12" r="1.5" class="mono"/>
+  <circle cx="42" cy="12" r="1.5" class="mono"/>
+  <circle cx="22" cy="52" r="1.5" class="mono" opacity="0.7"/>
+  <circle cx="42" cy="52" r="1.5" class="mono" opacity="0.7"/>
+</svg>

@@ -1,0 +1,64 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes sofisticados -->
+    <linearGradient id="pro2-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="pro2-secondary" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#009928;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ff41;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Máscara para crear profundidad -->
+    <mask id="pro2-mask">
+      <rect width="200" height="200" fill="white"/>
+      <circle cx="100" cy="100" r="30" fill="black"/>
+    </mask>
+  </defs>
+  
+  <!-- Diseño geométrico modular -->
+  <g transform="translate(100, 100)">
+    <!-- Base hexagonal -->
+    <path d="M-50 0 L-25 -43.3 L25 -43.3 L50 0 L25 43.3 L-25 43.3 Z" 
+          fill="none" 
+          stroke="url(#pro2-primary)" 
+          stroke-width="4"/>
+    
+    <!-- Triángulos internos -->
+    <g mask="url(#pro2-mask)">
+      <path d="M0 -60 L-52 30 L52 30 Z" 
+            fill="url(#pro2-primary)" 
+            opacity="0.2"/>
+      
+      <path d="M0 -40 L-35 20 L0 0 Z" 
+            fill="url(#pro2-primary)" 
+            opacity="0.8"/>
+      
+      <path d="M0 -40 L35 20 L0 0 Z" 
+            fill="url(#pro2-secondary)" 
+            opacity="0.6"/>
+    </g>
+    
+    <!-- Núcleo central -->
+    <circle cx="0" cy="0" r="25" 
+            fill="none" 
+            stroke="url(#pro2-primary)" 
+            stroke-width="3"/>
+    
+    <!-- Punto focal -->
+    <circle cx="0" cy="0" r="8" 
+            fill="url(#pro2-primary)"/>
+    
+    <!-- Detalles de conexión -->
+    <g stroke="url(#pro2-secondary)" stroke-width="1.5" fill="none" opacity="0.7">
+      <line x1="-25" y1="-43.3" x2="0" y2="-25" stroke-linecap="round"/>
+      <line x1="25" y1="-43.3" x2="0" y2="-25" stroke-linecap="round"/>
+      <line x1="-50" y1="0" x2="-25" y2="0" stroke-linecap="round"/>
+      <line x1="50" y1="0" x2="25" y2="0" stroke-linecap="round"/>
+      <line x1="-25" y1="43.3" x2="0" y2="25" stroke-linecap="round"/>
+      <line x1="25" y1="43.3" x2="0" y2="25" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

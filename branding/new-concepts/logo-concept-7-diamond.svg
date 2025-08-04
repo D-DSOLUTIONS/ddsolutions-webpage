@@ -1,0 +1,35 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concepto 7: Diamante/Cristal -->
+  <defs>
+    <linearGradient id="diamond-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="diamond-shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Diamante principal -->
+  <g transform="translate(32, 32)">
+    <!-- Facetas inferiores -->
+    <path d="M0 -20 L-16 0 L0 20 Z" fill="url(#diamond-gradient)" opacity="0.9" />
+    <path d="M0 -20 L16 0 L0 20 Z" fill="url(#diamond-gradient)" opacity="0.8" />
+    
+    <!-- Facetas superiores con brillo -->
+    <path d="M0 -20 L-16 0 L-8 -8 Z" fill="url(#diamond-shine)" />
+    <path d="M0 -20 L16 0 L8 -8 Z" fill="url(#diamond-shine)" />
+    
+    <!-- Borde -->
+    <path d="M0 -20 L-16 0 L0 20 L16 0 Z" 
+          fill="none" 
+          stroke="url(#diamond-gradient)" 
+          stroke-width="2"/>
+    
+    <!-- DD central -->
+    <text x="0" y="4" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
+          text-anchor="middle" fill="#ffffff">DD</text>
+  </g>
+</svg>

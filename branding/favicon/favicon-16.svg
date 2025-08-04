@@ -1,0 +1,21 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="f16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41"/>
+      <stop offset="100%" style="stop-color:#00cc34"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Ultra simplified for 16px recognition -->
+  <path d="M8 2 L13 4 L13 8 L11 10 L8 12 L5 10 L3 8 L3 4 Z" 
+        fill="none" 
+        stroke="url(#f16)" 
+        stroke-width="1"/>
+  
+  <!-- Simplified DD -->
+  <path d="M5 5 L5 11 L8 11 C10 11 11 10 11 8 C11 6 10 5 8 5 Z" 
+        fill="url(#f16)"/>
+  
+  <!-- Central point for recognition -->
+  <circle cx="8" cy="8" r="1" fill="url(#f16)"/>
+</svg>

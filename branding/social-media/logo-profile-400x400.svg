@@ -1,0 +1,101 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Social media optimized gradients -->
+    <linearGradient id="social-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#009928;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="social-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00ff41;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Social media glow effect -->
+    <filter id="social-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Background circle for profile -->
+    <radialGradient id="bg-gradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background circle for profile picture -->
+  <circle cx="200" cy="200" r="200" fill="url(#bg-gradient)"/>
+  
+  <!-- Social media safe area: 50px padding -->
+  <g transform="translate(50, 50)">
+    <!-- Main structure - social media optimized -->
+    <path d="M150 50 L250 100 L250 200 L225 250 L150 300 L75 250 L50 200 L50 100 Z" 
+          fill="none" 
+          stroke="url(#social-primary)" 
+          stroke-width="12" 
+          filter="url(#social-glow)"/>
+    
+    <!-- DD social media version -->
+    <g transform="translate(100, 125)">
+      <!-- First D -->
+      <path d="M0 0 L0 100 L50 100 C75 100 100 75 100 50 C100 25 75 0 50 0 Z" 
+            fill="url(#social-primary)"/>
+      
+      <!-- Second D -->
+      <path d="M75 12 L75 88 L112 88 C131 88 140 79 140 62 C140 45 131 36 112 36 L75 36 Z" 
+            fill="url(#social-accent)" 
+            opacity="0.9"/>
+    </g>
+    
+    <!-- Central core - social optimized -->
+    <circle cx="150" cy="175" r="25" 
+            fill="rgba(0, 255, 65, 0.2)" 
+            stroke="url(#social-accent)" 
+            stroke-width="3"/>
+    <circle cx="150" cy="175" r="15" fill="url(#social-primary)"/>
+    <circle cx="150" cy="175" r="8" fill="#ffffff" opacity="0.9"/>
+    <circle cx="150" cy="175" r="4" fill="url(#social-primary)"/>
+    
+    <!-- Connection points for social -->
+    <circle cx="100" cy="75" r="8" fill="url(#social-primary)">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="75" r="8" fill="url(#social-primary)">
+      <animate attributeName="opacity" values="1;0.8;1" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="100" cy="275" r="6" fill="url(#social-accent)">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="275" r="6" fill="url(#social-accent)">
+      <animate attributeName="opacity" values="1;0.6;1" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Connection lines -->
+    <path d="M100 75 L150 125 L200 75" 
+          stroke="url(#social-accent)" 
+          stroke-width="4" 
+          opacity="0.6" 
+          fill="none"/>
+    <path d="M100 275 L150 225 L200 275" 
+          stroke="url(#social-accent)" 
+          stroke-width="4" 
+          opacity="0.6" 
+          fill="none"/>
+  </g>
+  
+  <!-- Subtle outer ring for profile picture effect -->
+  <circle cx="200" cy="200" r="195" 
+          fill="none" 
+          stroke="url(#social-primary)" 
+          stroke-width="2" 
+          opacity="0.3"/>
+</svg>

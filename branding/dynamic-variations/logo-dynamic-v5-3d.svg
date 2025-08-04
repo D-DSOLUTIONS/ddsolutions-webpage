@@ -1,0 +1,95 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes 3D -->
+    <linearGradient id="dyn5-3d-front" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ff41;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="dyn5-3d-side" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#009928;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="dyn5-3d-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sombra 3D -->
+    <filter id="dyn5-3d-shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="4" dy="4" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.3"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Versión 3D isométrica -->
+  <g transform="translate(100, 100)">
+    <!-- Swoosh 3D -->
+    <g filter="url(#dyn5-3d-shadow)">
+      <!-- Cara inferior -->
+      <path d="M-50 10 Q-20 -20, 10 -20 Q40 -20, 70 10 Q40 40, 10 40 Q-20 40, -50 10" 
+            fill="url(#dyn5-3d-side)" 
+            opacity="0.8"/>
+      
+      <!-- Cara superior -->
+      <path d="M-55 5 Q-25 -25, 5 -25 Q35 -25, 65 5 Q35 35, 5 35 Q-25 35, -55 5" 
+            fill="url(#dyn5-3d-top)"/>
+      
+      <!-- Borde 3D -->
+      <path d="M-55 5 L-50 10 Q-20 -20, 10 -20 L5 -25 Q-25 -25, -55 5" 
+            fill="url(#dyn5-3d-front)"/>
+    </g>
+    
+    <!-- Estelas 3D -->
+    <g opacity="0.7">
+      <path d="M-75 -5 L-45 -5 L-40 0 L-70 0 Z" fill="url(#dyn5-3d-side)"/>
+      <path d="M-80 0 L-35 0 L-30 5 L-75 5 Z" fill="url(#dyn5-3d-front)"/>
+      <path d="M-75 5 L-45 5 L-40 10 L-70 10 Z" fill="url(#dyn5-3d-side)"/>
+    </g>
+    
+    <!-- DD 3D -->
+    <g transform="translate(-5, -5) scale(1.2)">
+      <!-- Primera D 3D -->
+      <g>
+        <!-- Cara frontal -->
+        <path d="M-10 -8 L-10 8 L-2 8 Q6 8, 6 0 Q6 -8, -2 -8 Z" 
+              fill="url(#dyn5-3d-front)"/>
+        <!-- Cara lateral -->
+        <path d="M-10 8 L-8 10 L0 10 Q8 10, 8 2 L6 0 Q6 8, -2 8 Z" 
+              fill="url(#dyn5-3d-side)"/>
+        <!-- Cara superior -->
+        <path d="M-10 -8 L-8 -10 L0 -10 Q8 -10, 8 -2 L6 0 Q6 -8, -2 -8 Z" 
+              fill="url(#dyn5-3d-top)"/>
+      </g>
+      
+      <!-- Segunda D 3D -->
+      <g transform="translate(8, 0)">
+        <!-- Cara frontal -->
+        <path d="M-10 -8 L-10 8 L-2 8 Q6 8, 6 0 Q6 -8, -2 -8 Z" 
+              fill="url(#dyn5-3d-front)"
+              opacity="0.9"/>
+        <!-- Cara lateral -->
+        <path d="M-10 8 L-8 10 L0 10 Q8 10, 8 2 L6 0 Q6 8, -2 8 Z" 
+              fill="url(#dyn5-3d-side)"
+              opacity="0.9"/>
+        <!-- Cara superior -->
+        <path d="M-10 -8 L-8 -10 L0 -10 Q8 -10, 8 -2 L6 0 Q6 -8, -2 -8 Z" 
+              fill="url(#dyn5-3d-top)"
+              opacity="0.9"/>
+      </g>
+    </g>
+    
+    <!-- Puntos 3D -->
+    <g>
+      <ellipse cx="-40" cy="-35" rx="3" ry="2" fill="url(#dyn5-3d-front)"/>
+      <ellipse cx="40" cy="35" rx="3" ry="2" fill="url(#dyn5-3d-front)"/>
+    </g>
+  </g>
+</svg>

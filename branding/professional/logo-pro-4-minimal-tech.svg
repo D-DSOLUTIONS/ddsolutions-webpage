@@ -1,0 +1,70 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente minimalista -->
+    <linearGradient id="pro4-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Patrón de puntos técnico -->
+    <pattern id="pro4-dots" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.5" fill="#00ff41" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Diseño minimalista técnico -->
+  <g transform="translate(100, 100)">
+    <!-- Marco técnico -->
+    <rect x="-60" y="-60" width="120" height="120" 
+          fill="none" 
+          stroke="url(#pro4-gradient)" 
+          stroke-width="1" 
+          opacity="0.3"/>
+    
+    <!-- DD construido con precisión -->
+    <g>
+      <!-- Primera D - construcción geométrica -->
+      <path d="M-35 -25 L-35 25 L-15 25 Q5 25, 5 0 Q5 -25, -15 -25 Z" 
+            fill="none" 
+            stroke="url(#pro4-gradient)" 
+            stroke-width="3"/>
+      
+      <!-- Segunda D - offset calculado -->
+      <path d="M-5 -25 L-5 25 L15 25 Q35 25, 35 0 Q35 -25, 15 -25 Z" 
+            fill="none" 
+            stroke="url(#pro4-gradient)" 
+            stroke-width="3"/>
+      
+      <!-- Relleno con patrón técnico -->
+      <path d="M-35 -25 L-35 25 L-15 25 Q5 25, 5 0 Q5 -25, -15 -25 Z" 
+            fill="url(#pro4-dots)"/>
+    </g>
+    
+    <!-- Indicadores técnicos -->
+    <g stroke="url(#pro4-gradient)" stroke-width="0.5" fill="none" opacity="0.5">
+      <!-- Líneas de medición -->
+      <line x1="-35" y1="-35" x2="-35" y2="-28"/>
+      <line x1="35" y1="-35" x2="35" y2="-28"/>
+      <line x1="-42" y1="-25" x2="-38" y2="-25"/>
+      <line x1="-42" y1="25" x2="-38" y2="25"/>
+      
+      <!-- Puntos de anclaje -->
+      <circle cx="-35" cy="0" r="1.5" fill="url(#pro4-gradient)"/>
+      <circle cx="35" cy="0" r="1.5" fill="url(#pro4-gradient)"/>
+      <circle cx="0" cy="-25" r="1.5" fill="url(#pro4-gradient)"/>
+      <circle cx="0" cy="25" r="1.5" fill="url(#pro4-gradient)"/>
+    </g>
+    
+    <!-- Detalles de esquina -->
+    <g fill="url(#pro4-gradient)">
+      <rect x="-60" y="-60" width="8" height="1"/>
+      <rect x="-60" y="-60" width="1" height="8"/>
+      <rect x="52" y="-60" width="8" height="1"/>
+      <rect x="59" y="-60" width="1" height="8"/>
+      <rect x="-60" y="59" width="8" height="1"/>
+      <rect x="-60" y="52" width="1" height="8"/>
+      <rect x="52" y="59" width="8" height="1"/>
+      <rect x="59" y="52" width="1" height="8"/>
+    </g>
+  </g>
+</svg>

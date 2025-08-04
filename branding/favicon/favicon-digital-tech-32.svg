@@ -1,0 +1,73 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fav32-tech" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41"/>
+      <stop offset="50%" style="stop-color:#39ff5c"/>
+      <stop offset="100%" style="stop-color:#00cc34"/>
+    </linearGradient>
+    
+    <!-- Patrón micro -->
+    <pattern id="fav32-circuit" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.2" fill="#00ff41" opacity="0.3"/>
+      <circle cx="3" cy="3" r="0.2" fill="#00ff41" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Favicon 32px -->
+  <g transform="translate(16, 16)">
+    <!-- Grid de fondo -->
+    <rect x="-12" y="-12" width="24" height="24" fill="url(#fav32-circuit)" opacity="0.4"/>
+    
+    <!-- Marco tech -->
+    <g stroke="url(#fav32-tech)" fill="none" opacity="0.7">
+      <rect x="-10" y="-10" width="20" height="20" stroke-width="0.5" stroke-dasharray="2 1"/>
+      <line x1="-10" y1="0" x2="-8" y2="0" stroke-width="1"/>
+      <line x1="8" y1="0" x2="10" y2="0" stroke-width="1"/>
+    </g>
+    
+    <!-- Swoosh principal -->
+    <path d="M-9 0 Q-4 -6, 0 -6 Q4 -6, 9 0 Q4 6, 0 6 Q-4 6, -9 0" 
+          fill="none" 
+          stroke="url(#fav32-tech)" 
+          stroke-width="1.5" 
+          stroke-dasharray="12 4"
+          stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;16" 
+               dur="2s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Líneas de datos -->
+    <path d="M-12 0 L-6 0" 
+          stroke="url(#fav32-tech)" 
+          stroke-width="1" 
+          stroke-dasharray="3 1"
+          opacity="0.8">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;-4" 
+               dur="1s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <!-- DD optimizado -->
+    <g transform="scale(0.6)">
+      <g stroke="url(#fav32-tech)" fill="none" stroke-width="1.5">
+        <path d="M-6 -4 L-6 4 L-2 4 Q2 4, 2 0 Q2 -4, -2 -4 Z"/>
+        <path d="M0 -4 L0 4 L4 4 Q8 4, 8 0 Q8 -4, 4 -4 Z"/>
+      </g>
+      <g fill="url(#fav32-tech)" opacity="0.3">
+        <path d="M-6 -4 L-6 4 L-2 4 Q2 4, 2 0 Q2 -4, -2 -4 Z"/>
+        <path d="M0 -4 L0 4 L4 4 Q8 4, 8 0 Q8 -4, 4 -4 Z"/>
+      </g>
+    </g>
+    
+    <!-- Nodos de conexión -->
+    <g fill="url(#fav32-tech)">
+      <rect x="-8" y="-8" width="1" height="1"/>
+      <rect x="7" y="-8" width="1" height="1"/>
+      <rect x="-8" y="7" width="1" height="1"/>
+      <rect x="7" y="7" width="1" height="1"/>
+    </g>
+  </g>
+</svg>

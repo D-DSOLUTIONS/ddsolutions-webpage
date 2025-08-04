@@ -1,0 +1,28 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Concepto 6: Escudo tecnológico -->
+  <defs>
+    <linearGradient id="shield-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Escudo -->
+  <path d="M32 8 L48 16 L48 32 C48 44 40 52 32 56 C24 52 16 44 16 32 L16 16 Z" 
+        fill="none" 
+        stroke="url(#shield-gradient)" 
+        stroke-width="3"/>
+  
+  <!-- Patrón interno -->
+  <g stroke="url(#shield-gradient)" stroke-width="1" opacity="0.5">
+    <line x1="32" y1="16" x2="32" y2="48" />
+    <line x1="24" y1="24" x2="40" y2="24" />
+    <line x1="24" y1="32" x2="40" y2="32" />
+    <line x1="24" y1="40" x2="40" y2="40" />
+  </g>
+  
+  <!-- DD central -->
+  <text x="32" y="36" font-family="Arial, sans-serif" font-size="16" font-weight="bold" 
+        text-anchor="middle" fill="url(#shield-gradient)">DD</text>
+</svg>

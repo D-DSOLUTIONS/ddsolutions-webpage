@@ -1,0 +1,58 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente corporativo elegante -->
+    <linearGradient id="pro5-main" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#009928;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="pro5-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ff41;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sombra elegante -->
+    <filter id="pro5-shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Logo corporativo sofisticado -->
+  <g transform="translate(100, 100)">
+    <!-- Contenedor principal -->
+    <rect x="-50" y="-40" width="100" height="80" 
+          rx="8" ry="8" 
+          fill="url(#pro5-main)" 
+          filter="url(#pro5-shadow)"/>
+    
+    <!-- DD corporativo en negativo -->
+    <g fill="#0a0a0a">
+      <!-- Primera D -->
+      <path d="M-30 -20 L-30 20 L-15 20 Q0 20, 0 0 Q0 -20, -15 -20 Z"/>
+      
+      <!-- Segunda D -->
+      <path d="M5 -20 L5 20 L20 20 Q35 20, 35 0 Q35 -20, 20 -20 Z"/>
+    </g>
+    
+    <!-- Línea divisoria elegante -->
+    <rect x="-50" y="30" width="100" height="2" fill="url(#pro5-accent)"/>
+    
+    <!-- Subtítulo corporativo -->
+    <g transform="translate(0, 50)">
+      <rect x="-45" y="-5" width="90" height="15" 
+            rx="2" ry="2" 
+            fill="url(#pro5-accent)" 
+            opacity="0.2"/>
+      
+      <!-- Puntos indicadores -->
+      <circle cx="-35" cy="2.5" r="2" fill="url(#pro5-main)"/>
+      <circle cx="0" cy="2.5" r="2" fill="url(#pro5-main)"/>
+      <circle cx="35" cy="2.5" r="2" fill="url(#pro5-main)"/>
+    </g>
+    
+    <!-- Detalle superior -->
+    <rect x="-30" y="-50" width="60" height="4" 
+          rx="2" ry="2" 
+          fill="url(#pro5-accent)"/>
+  </g>
+</svg>

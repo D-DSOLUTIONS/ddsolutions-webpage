@@ -1,0 +1,73 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente minimalista -->
+    <linearGradient id="dyn4-minimal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Máscara para efecto de corte -->
+    <mask id="dyn4-mask">
+      <rect width="200" height="200" fill="white"/>
+      <circle cx="100" cy="100" r="30" fill="black"/>
+    </mask>
+  </defs>
+  
+  <!-- Versión ultra minimalista -->
+  <g transform="translate(100, 100)">
+    <!-- Swoosh simplificado -->
+    <path d="M-70 0 Q0 -50, 70 0" 
+          fill="none" 
+          stroke="url(#dyn4-minimal)" 
+          stroke-width="5" 
+          stroke-linecap="round"
+          mask="url(#dyn4-mask)"/>
+    
+    <path d="M-70 0 Q0 50, 70 0" 
+          fill="none" 
+          stroke="url(#dyn4-minimal)" 
+          stroke-width="5" 
+          stroke-linecap="round"
+          mask="url(#dyn4-mask)"/>
+    
+    <!-- Líneas de velocidad mínimas -->
+    <g>
+      <line x1="-80" y1="-5" x2="-50" y2="-5" 
+            stroke="url(#dyn4-minimal)" 
+            stroke-width="3" 
+            stroke-linecap="round" 
+            opacity="0.6"/>
+      <line x1="-85" y1="0" x2="-45" y2="0" 
+            stroke="url(#dyn4-minimal)" 
+            stroke-width="4" 
+            stroke-linecap="round" 
+            opacity="0.8"/>
+      <line x1="-80" y1="5" x2="-50" y2="5" 
+            stroke="url(#dyn4-minimal)" 
+            stroke-width="3" 
+            stroke-linecap="round" 
+            opacity="0.6"/>
+    </g>
+    
+    <!-- DD ultra simple -->
+    <g transform="scale(1.5)">
+      <!-- DD como líneas continuas -->
+      <path d="M-10 -8 L-10 8 M-10 -8 Q2 -8, 2 0 Q2 8, -10 8" 
+            fill="none" 
+            stroke="url(#dyn4-minimal)" 
+            stroke-width="3" 
+            stroke-linecap="round"/>
+      
+      <path d="M2 -8 L2 8 M2 -8 Q14 -8, 14 0 Q14 8, 2 8" 
+            fill="none" 
+            stroke="url(#dyn4-minimal)" 
+            stroke-width="3" 
+            stroke-linecap="round"
+            opacity="0.8"/>
+    </g>
+    
+    <!-- Puntos mínimos -->
+    <circle cx="-45" cy="0" r="2" fill="url(#dyn4-minimal)"/>
+    <circle cx="45" cy="0" r="2" fill="url(#dyn4-minimal)"/>
+  </g>
+</svg>

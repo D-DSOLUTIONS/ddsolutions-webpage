@@ -1,0 +1,106 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes tecnológicos optimizados para icono -->
+    <linearGradient id="icon-tech" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="33%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="66%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#009928;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Patrón de circuito para icono -->
+    <pattern id="icon-circuit" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.5" fill="#00ff41" opacity="0.4"/>
+      <circle cx="4" cy="4" r="0.5" fill="#00ff41" opacity="0.4"/>
+      <circle cx="7" cy="7" r="0.5" fill="#00ff41" opacity="0.4"/>
+      <line x1="1" y1="1" x2="4" y2="4" stroke="#00ff41" stroke-width="0.3" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Versión icono del logo digital tech -->
+  <g transform="translate(32, 32)">
+    <!-- Grid de fondo simplificado -->
+    <rect x="-28" y="-28" width="56" height="56" fill="url(#icon-circuit)" opacity="0.3"/>
+    
+    <!-- Marco tech compacto -->
+    <g stroke="url(#icon-tech)" fill="none" opacity="0.6">
+      <rect x="-24" y="-24" width="48" height="48" stroke-width="0.5" stroke-dasharray="3 2"/>
+      <line x1="-24" y1="0" x2="-20" y2="0" stroke-width="1.5"/>
+      <line x1="20" y1="0" x2="24" y2="0" stroke-width="1.5"/>
+      <line x1="0" y1="-24" x2="0" y2="-20" stroke-width="1.5"/>
+      <line x1="0" y1="20" x2="0" y2="24" stroke-width="1.5"/>
+    </g>
+    
+    <!-- Swoosh central simplificado -->
+    <path d="M-20 0 Q-10 -12, 0 -12 Q10 -12, 20 0 Q10 12, 0 12 Q-10 12, -20 0" 
+          fill="none" 
+          stroke="url(#icon-tech)" 
+          stroke-width="2.5" 
+          stroke-dasharray="25 8"
+          stroke-linecap="round">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;33" 
+               dur="3s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Líneas de datos compactas -->
+    <g>
+      <path d="M-26 -3 L-15 -3" 
+            stroke="url(#icon-tech)" 
+            stroke-width="1" 
+            stroke-dasharray="4 1"
+            opacity="0.7">
+        <animate attributeName="stroke-dashoffset" 
+                 values="0;-5" 
+                 dur="0.8s" 
+                 repeatCount="indefinite"/>
+      </path>
+      <path d="M-28 0 L-12 0" 
+            stroke="url(#icon-tech)" 
+            stroke-width="1.5" 
+            stroke-dasharray="6 1"
+            opacity="0.9">
+        <animate attributeName="stroke-dashoffset" 
+                 values="0;-7" 
+                 dur="1.2s" 
+                 repeatCount="indefinite"/>
+      </path>
+      <path d="M-26 3 L-15 3" 
+            stroke="url(#icon-tech)" 
+            stroke-width="1" 
+            stroke-dasharray="4 1"
+            opacity="0.7">
+        <animate attributeName="stroke-dashoffset" 
+                 values="0;-5" 
+                 dur="0.8s" 
+                 repeatCount="indefinite"/>
+      </path>
+    </g>
+    
+    <!-- DD digital compacto -->
+    <g transform="scale(0.8)">
+      <!-- DD con efecto digital -->
+      <g stroke="url(#icon-tech)" fill="none" stroke-width="2">
+        <!-- Primera D -->
+        <path d="M-8 -6 L-8 6 L-2 6 Q4 6, 4 0 Q4 -6, -2 -6 Z"/>
+        <!-- Segunda D -->
+        <path d="M2 -6 L2 6 L8 6 Q14 6, 14 0 Q14 -6, 8 -6 Z"/>
+      </g>
+      
+      <!-- Relleno digital -->
+      <g fill="url(#icon-tech)" opacity="0.25">
+        <path d="M-8 -6 L-8 6 L-2 6 Q4 6, 4 0 Q4 -6, -2 -6 Z"/>
+        <path d="M2 -6 L2 6 L8 6 Q14 6, 14 0 Q14 -6, 8 -6 Z"/>
+      </g>
+    </g>
+    
+    <!-- Nodos de conexión pequeños -->
+    <g fill="url(#icon-tech)">
+      <rect x="-18" y="-18" width="2" height="2"/>
+      <rect x="16" y="-18" width="2" height="2"/>
+      <rect x="-18" y="16" width="2" height="2"/>
+      <rect x="16" y="16" width="2" height="2"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,255 @@
+/* DDSolutions Logo CSS Sprite System */
+/* Auto-generated sprite classes for all logo variations */
+
+:root {
+  /* DDSolutions Color Variables */
+  --dd-primary: #00ff41;
+  --dd-accent: #39ff5c;
+  --dd-dark: #00cc34;
+  --dd-deep: #009928;
+  --dd-darker: #007a1f;
+  --dd-darkest: #005c17;
+  
+  /* Size Variables */
+  --dd-xs: 16px;
+  --dd-sm: 24px;
+  --dd-md: 32px;
+  --dd-lg: 48px;
+  --dd-xl: 64px;
+}
+
+/* Base Logo Class */
+.dd-logo {
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* Size Classes */
+.dd-logo--xs { width: var(--dd-xs); height: var(--dd-xs); }
+.dd-logo--sm { width: var(--dd-sm); height: var(--dd-sm); }
+.dd-logo--md { width: var(--dd-md); height: var(--dd-md); }
+.dd-logo--lg { width: var(--dd-lg); height: var(--dd-lg); }
+.dd-logo--xl { width: var(--dd-xl); height: var(--dd-xl); }
+
+/* Icon Variations */
+.dd-logo--icon {
+  background-image: url('../icons/logo-icon-base.svg');
+}
+
+.dd-logo--icon.dd-logo--xs { width: 16px; height: 16px; }
+.dd-logo--icon.dd-logo--sm { width: 24px; height: 24px; }
+.dd-logo--icon.dd-logo--md { width: 32px; height: 32px; }
+.dd-logo--icon.dd-logo--lg { width: 48px; height: 48px; }
+.dd-logo--icon.dd-logo--xl { width: 64px; height: 64px; }
+
+/* Horizontal Variations */
+.dd-logo--horizontal {
+  background-image: url('../horizontal/logo-horizontal-base.svg');
+}
+
+.dd-logo--horizontal.dd-logo--xs { width: 120px; height: 32px; }
+.dd-logo--horizontal.dd-logo--sm { width: 160px; height: 40px; }
+.dd-logo--horizontal.dd-logo--md { width: 200px; height: 50px; }
+.dd-logo--horizontal.dd-logo--lg { width: 280px; height: 70px; }
+.dd-logo--horizontal.dd-logo--xl { width: 360px; height: 90px; }
+
+/* Vertical Variations */
+.dd-logo--vertical {
+  background-image: url('../vertical/logo-vertical-base.svg');
+}
+
+.dd-logo--vertical.dd-logo--xs { width: 60px; height: 80px; }
+.dd-logo--vertical.dd-logo--sm { width: 80px; height: 120px; }
+.dd-logo--vertical.dd-logo--md { width: 100px; height: 140px; }
+.dd-logo--vertical.dd-logo--lg { width: 120px; height: 160px; }
+.dd-logo--vertical.dd-logo--xl { width: 150px; height: 200px; }
+
+/* Favicon Variations */
+.dd-logo--favicon-16 {
+  background-image: url('../favicon/favicon-16.svg');
+  width: 16px;
+  height: 16px;
+}
+
+.dd-logo--favicon-32 {
+  background-image: url('../favicon/favicon-32.svg');
+  width: 32px;
+  height: 32px;
+}
+
+/* Monochrome Variations */
+.dd-logo--monochrome-green {
+  background-image: url('../monochrome/logo-monochrome-green.svg');
+}
+
+.dd-logo--monochrome-black {
+  background-image: url('../monochrome/logo-monochrome-black.svg');
+}
+
+/* Background-Specific Variations */
+.dd-logo--dark-bg {
+  background-image: url('../reversed/logo-reversed-dark-bg.svg');
+}
+
+.dd-logo--light-bg {
+  background-image: url('../reversed/logo-reversed-light-bg.svg');
+}
+
+/* Web Header Variation */
+.dd-logo--header {
+  background-image: url('../web-headers/logo-header-200x50.svg');
+  width: 200px;
+  height: 50px;
+}
+
+/* App Icon Variations */
+.dd-logo--app-512 {
+  background-image: url('../app-icons/logo-app-512.svg');
+  width: 512px;
+  height: 512px;
+}
+
+.dd-logo--app-1024 {
+  background-image: url('../app-icons/logo-app-1024.svg');
+  width: 1024px;
+  height: 1024px;
+}
+
+/* Social Media Variations */
+.dd-logo--social-profile {
+  background-image: url('../social-media/logo-profile-400x400.svg');
+  width: 400px;
+  height: 400px;
+}
+
+.dd-logo--social-banner {
+  background-image: url('../social-media/logo-banner-1500x500.svg');
+  width: 1500px;
+  height: 500px;
+}
+
+/* Theme Variations */
+.dd-logo--theme-default {
+  filter: none;
+}
+
+.dd-logo--theme-light {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.dd-logo--theme-dark {
+  filter: brightness(1.2) saturate(1.1);
+}
+
+.dd-logo--theme-monochrome {
+  filter: grayscale(1) contrast(1.2);
+}
+
+/* Interactive States */
+.dd-logo--interactive {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dd-logo--interactive:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1) drop-shadow(0 0 8px var(--dd-primary));
+}
+
+.dd-logo--interactive:active {
+  transform: scale(0.98);
+}
+
+/* Animation Classes */
+.dd-logo--animated {
+  animation: dd-pulse 3s ease-in-out infinite;
+}
+
+@keyframes dd-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.dd-logo--glow {
+  filter: drop-shadow(0 0 12px var(--dd-primary));
+}
+
+.dd-logo--glow-strong {
+  filter: drop-shadow(0 0 20px var(--dd-primary)) drop-shadow(0 0 40px var(--dd-accent));
+}
+
+/* Responsive Classes */
+@media (max-width: 768px) {
+  .dd-logo--responsive.dd-logo--horizontal.dd-logo--lg { width: 200px; height: 50px; }
+  .dd-logo--responsive.dd-logo--horizontal.dd-logo--xl { width: 240px; height: 60px; }
+  .dd-logo--responsive.dd-logo--vertical.dd-logo--lg { width: 80px; height: 120px; }
+  .dd-logo--responsive.dd-logo--vertical.dd-logo--xl { width: 100px; height: 140px; }
+}
+
+@media (max-width: 480px) {
+  .dd-logo--responsive.dd-logo--horizontal.dd-logo--lg { width: 160px; height: 40px; }
+  .dd-logo--responsive.dd-logo--horizontal.dd-logo--xl { width: 180px; height: 45px; }
+  .dd-logo--responsive.dd-logo--vertical.dd-logo--lg { width: 60px; height: 80px; }
+  .dd-logo--responsive.dd-logo--vertical.dd-logo--xl { width: 70px; height: 100px; }
+}
+
+/* Utility Classes */
+.dd-logo--center {
+  margin: 0 auto;
+}
+
+.dd-logo--left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.dd-logo--right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.dd-logo--block {
+  display: block;
+}
+
+.dd-logo--inline {
+  display: inline-block;
+}
+
+/* Print Styles */
+@media print {
+  .dd-logo {
+    filter: none !important;
+    animation: none !important;
+  }
+  
+  .dd-logo--monochrome-black {
+    background-image: url('../monochrome/logo-monochrome-black.svg') !important;
+  }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .dd-logo--app-512 {
+    background-image: url('../app-icons/logo-app-1024.svg');
+    background-size: 512px 512px;
+  }
+}
+
+/* CSS Custom Properties for Dynamic Theming */
+.dd-logo[data-theme="custom"] {
+  filter: hue-rotate(var(--dd-hue-shift, 0deg)) 
+          saturate(var(--dd-saturation, 1)) 
+          brightness(var(--dd-brightness, 1));
+}
+
+/* Usage Examples in Comments:
+<div class="dd-logo dd-logo--horizontal dd-logo--md dd-logo--interactive"></div>
+<div class="dd-logo dd-logo--icon dd-logo--lg dd-logo--glow"></div>
+<div class="dd-logo dd-logo--vertical dd-logo--sm dd-logo--theme-dark"></div>
+<div class="dd-logo dd-logo--header dd-logo--responsive"></div>
+*/

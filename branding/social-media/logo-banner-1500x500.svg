@@ -1,0 +1,145 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Banner optimized gradients -->
+    <linearGradient id="banner-primary" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#39ff5c;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#00cc34;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#009928;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="banner-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#39ff5c;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00ff41;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00cc34;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Banner background gradient -->
+    <linearGradient id="banner-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Banner glow effect -->
+    <filter id="banner-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Banner background -->
+  <rect width="1500" height="500" fill="url(#banner-bg)"/>
+  
+  <!-- Left side logo -->
+  <g transform="translate(100, 100)">
+    <!-- Main structure -->
+    <path d="M150 50 L250 100 L250 200 L225 250 L150 300 L75 250 L50 200 L50 100 Z" 
+          fill="none" 
+          stroke="url(#banner-primary)" 
+          stroke-width="8" 
+          filter="url(#banner-glow)"/>
+    
+    <!-- DD for banner -->
+    <g transform="translate(100, 125)">
+      <path d="M0 0 L0 100 L50 100 C75 100 100 75 100 50 C100 25 75 0 50 0 Z" 
+            fill="url(#banner-primary)"/>
+      <path d="M75 12 L75 88 L112 88 C131 88 140 79 140 62 C140 45 131 36 112 36 L75 36 Z" 
+            fill="url(#banner-accent)" 
+            opacity="0.9"/>
+    </g>
+    
+    <circle cx="150" cy="175" r="15" fill="url(#banner-primary)"/>
+    <circle cx="150" cy="175" r="8" fill="#ffffff" opacity="0.9"/>
+  </g>
+  
+  <!-- Center text content -->
+  <g transform="translate(450, 0)">
+    <!-- Main title -->
+    <text x="0" y="180" 
+          font-family="'Orbitron', monospace" 
+          font-weight="700" 
+          font-size="72" 
+          fill="url(#banner-primary)"
+          letter-spacing="8px">DDSOLUTIONS</text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="220" 
+          font-family="'Inter', sans-serif" 
+          font-weight="400" 
+          font-size="24" 
+          fill="url(#banner-primary)" 
+          opacity="0.8"
+          letter-spacing="4px">AI & AUTOMATION SOLUTIONS</text>
+    
+    <!-- Tagline -->
+    <text x="0" y="260" 
+          font-family="'Inter', sans-serif" 
+          font-weight="300" 
+          font-size="18" 
+          fill="url(#banner-accent)" 
+          opacity="0.7">Transforming businesses through intelligent automation</text>
+    
+    <!-- Website -->
+    <text x="0" y="320" 
+          font-family="'Orbitron', monospace" 
+          font-weight="500" 
+          font-size="20" 
+          fill="url(#banner-primary)" 
+          opacity="0.6">ddsolutions.ai</text>
+  </g>
+  
+  <!-- Right side decorative elements -->
+  <g transform="translate(1200, 50)">
+    <!-- Tech grid pattern -->
+    <g opacity="0.3">
+      <circle cx="50" cy="50" r="3" fill="url(#banner-primary)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="50" r="3" fill="url(#banner-primary)">
+        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="150" cy="50" r="3" fill="url(#banner-primary)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      
+      <circle cx="50" cy="200" r="3" fill="url(#banner-accent)">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="200" r="3" fill="url(#banner-accent)">
+        <animate attributeName="opacity" values="1;0.5;1" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="150" cy="200" r="3" fill="url(#banner-accent)">
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      
+      <circle cx="50" cy="350" r="3" fill="url(#banner-primary)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="350" r="3" fill="url(#banner-primary)">
+        <animate attributeName="opacity" values="0.8;0.3;0.8" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="150" cy="350" r="3" fill="url(#banner-primary)">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Connecting lines -->
+      <path d="M50 50 L100 50 L150 50" stroke="url(#banner-accent)" stroke-width="1" opacity="0.4"/>
+      <path d="M50 200 L100 200 L150 200" stroke="url(#banner-accent)" stroke-width="1" opacity="0.4"/>
+      <path d="M50 350 L100 350 L150 350" stroke="url(#banner-accent)" stroke-width="1" opacity="0.4"/>
+      
+      <path d="M50 50 L50 200 L50 350" stroke="url(#banner-accent)" stroke-width="1" opacity="0.4"/>
+      <path d="M100 50 L100 200 L100 350" stroke="url(#banner-accent)" stroke-width="1" opacity="0.4"/>
+      <path d="M150 50 L150 200 L150 350" stroke="url(#banner-accent)" stroke-width="1" opacity="0.4"/>
+    </g>
+  </g>
+  
+  <!-- Bottom gradient line -->
+  <rect x="0" y="480" width="1500" height="20" fill="url(#banner-accent)" opacity="0.5"/>
+</svg>

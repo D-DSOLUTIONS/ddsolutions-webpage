@@ -1,0 +1,561 @@
+// DDSolutions SCSS Mixins and Variables
+// Complete design system implementation for SCSS projects
+
+// =============================================================================
+// VARIABLES
+// =============================================================================
+
+// Brand Colors
+$dd-primary: #00ff41 !default;
+$dd-accent: #39ff5c !default;
+$dd-dark: #00cc34 !default;
+$dd-deep: #009928 !default;
+$dd-darker: #007a1f !default;
+$dd-darkest: #005c17 !default;
+
+// Neutral Colors
+$dd-black: #000000 !default;
+$dd-dark-gray: #1a1a1a !default;
+$dd-gray: #666666 !default;
+$dd-light-gray: #cccccc !default;
+$dd-white: #ffffff !default;
+
+// Color Maps
+$dd-colors: (
+  'primary': $dd-primary,
+  'accent': $dd-accent,
+  'dark': $dd-dark,
+  'deep': $dd-deep,
+  'darker': $dd-darker,
+  'darkest': $dd-darkest,
+  'black': $dd-black,
+  'dark-gray': $dd-dark-gray,
+  'gray': $dd-gray,
+  'light-gray': $dd-light-gray,
+  'white': $dd-white
+) !default;
+
+// Typography
+$dd-font-primary: 'Orbitron', monospace !default;
+$dd-font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !default;
+
+$dd-font-weights: (
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extrabold': 800,
+  'black': 900
+) !default;
+
+// Spacing (8px grid system)
+$dd-spacing-base: 8px !default;
+$dd-spacing: (
+  'xs': $dd-spacing-base * 0.5,  // 4px
+  'sm': $dd-spacing-base * 1,    // 8px
+  'md': $dd-spacing-base * 2,    // 16px
+  'lg': $dd-spacing-base * 3,    // 24px
+  'xl': $dd-spacing-base * 4,    // 32px
+  '2xl': $dd-spacing-base * 6,   // 48px
+  '3xl': $dd-spacing-base * 8,   // 64px
+  '4xl': $dd-spacing-base * 12,  // 96px
+  '5xl': $dd-spacing-base * 16   // 128px
+) !default;
+
+// Logo Sizes
+$dd-logo-sizes: (
+  'icon': (
+    'xs': (width: 16px, height: 16px),
+    'sm': (width: 24px, height: 24px),
+    'md': (width: 32px, height: 32px),
+    'lg': (width: 48px, height: 48px),
+    'xl': (width: 64px, height: 64px)
+  ),
+  'horizontal': (
+    'xs': (width: 120px, height: 32px),
+    'sm': (width: 160px, height: 40px),
+    'md': (width: 200px, height: 50px),
+    'lg': (width: 280px, height: 70px),
+    'xl': (width: 360px, height: 90px)
+  ),
+  'vertical': (
+    'xs': (width: 60px, height: 80px),
+    'sm': (width: 80px, height: 120px),
+    'md': (width: 100px, height: 140px),
+    'lg': (width: 120px, height: 160px),
+    'xl': (width: 150px, height: 200px)
+  )
+) !default;
+
+// Breakpoints
+$dd-breakpoints: (
+  'xs': 475px,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+) !default;
+
+// Animation
+$dd-transitions: (
+  'fast': 200ms,
+  'normal': 300ms,
+  'slow': 500ms
+) !default;
+
+$dd-easings: (
+  'ease': cubic-bezier(0.4, 0, 0.2, 1),
+  'ease-in': cubic-bezier(0.4, 0, 1, 1),
+  'ease-out': cubic-bezier(0, 0, 0.2, 1),
+  'bounce': cubic-bezier(0.68, -0.55, 0.265, 1.55)
+) !default;
+
+// =============================================================================
+// FUNCTIONS
+// =============================================================================
+
+// Get color from the color map
+@function dd-color($color) {
+  @if map-has-key($dd-colors, $color) {
+    @return map-get($dd-colors, $color);
+  }
+  
+  @warn "Color '#{$color}' not found in $dd-colors map.";
+  @return null;
+}
+
+// Get spacing value
+@function dd-spacing($size) {
+  @if map-has-key($dd-spacing, $size) {
+    @return map-get($dd-spacing, $size);
+  }
+  
+  @warn "Spacing size '#{$size}' not found in $dd-spacing map.";
+  @return null;
+}
+
+// Get font weight
+@function dd-weight($weight) {
+  @if map-has-key($dd-font-weights, $weight) {
+    @return map-get($dd-font-weights, $weight);
+  }
+  
+  @warn "Font weight '#{$weight}' not found in $dd-font-weights map.";
+  @return null;
+}
+
+// Get logo dimensions
+@function dd-logo-size($variant, $size, $dimension) {
+  @if map-has-key($dd-logo-sizes, $variant) {
+    $variant-sizes: map-get($dd-logo-sizes, $variant);
+    @if map-has-key($variant-sizes, $size) {
+      $size-map: map-get($variant-sizes, $size);
+      @if map-has-key($size-map, $dimension) {
+        @return map-get($size-map, $dimension);
+      }
+    }
+  }
+  
+  @warn "Logo size not found: #{$variant} #{$size} #{$dimension}";
+  @return null;
+}
+
+// =============================================================================
+// MIXINS
+// =============================================================================
+
+// Logo Background Mixin
+@mixin dd-logo($variant: 'horizontal', $size: 'md', $theme: 'default') {
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  
+  // Set dimensions
+  @if $variant == 'icon' {
+    width: dd-logo-size('icon', $size, 'width');
+    height: dd-logo-size('icon', $size, 'height');
+    background-image: url('../icons/logo-icon-base.svg');
+  } @else if $variant == 'horizontal' {
+    width: dd-logo-size('horizontal', $size, 'width');
+    height: dd-logo-size('horizontal', $size, 'height');
+    background-image: url('../horizontal/logo-horizontal-base.svg');
+  } @else if $variant == 'vertical' {
+    width: dd-logo-size('vertical', $size, 'width');
+    height: dd-logo-size('vertical', $size, 'height');
+    background-image: url('../vertical/logo-vertical-base.svg');
+  }
+  
+  // Apply theme-specific overrides
+  @if $theme == 'monochrome-green' {
+    background-image: url('../monochrome/logo-monochrome-green.svg');
+  } @else if $theme == 'monochrome-black' {
+    background-image: url('../monochrome/logo-monochrome-black.svg');
+  } @else if $theme == 'dark-bg' {
+    background-image: url('../reversed/logo-reversed-dark-bg.svg');
+  } @else if $theme == 'light-bg' {
+    background-image: url('../reversed/logo-reversed-light-bg.svg');
+  }
+}
+
+// Brand Gradient Mixin
+@mixin dd-gradient($direction: 135deg, $variant: 'primary') {
+  @if $variant == 'primary' {
+    background: linear-gradient(
+      $direction,
+      $dd-primary 0%,
+      $dd-accent 30%,
+      $dd-dark 70%,
+      $dd-deep 100%
+    );
+  } @else if $variant == 'accent' {
+    background: linear-gradient(
+      $direction,
+      $dd-accent 0%,
+      $dd-primary 50%,
+      $dd-dark 100%
+    );
+  } @else if $variant == 'dark' {
+    background: linear-gradient(
+      $direction,
+      $dd-black 0%,
+      $dd-dark-gray 50%,
+      $dd-black 100%
+    );
+  }
+}
+
+// Glow Effect Mixin
+@mixin dd-glow($intensity: 'normal', $color: $dd-primary) {
+  @if $intensity == 'subtle' {
+    filter: drop-shadow(0 0 8px rgba($color, 0.3));
+  } @else if $intensity == 'normal' {
+    filter: drop-shadow(0 0 12px rgba($color, 0.5));
+  } @else if $intensity == 'strong' {
+    filter: drop-shadow(0 0 20px rgba($color, 0.7)) 
+            drop-shadow(0 0 40px rgba($dd-accent, 0.3));
+  }
+}
+
+// Brand Typography Mixin
+@mixin dd-typography($type: 'body', $device: 'desktop') {
+  font-family: $dd-font-secondary;
+  
+  @if $type == 'brand' {
+    font-family: $dd-font-primary;
+    font-weight: dd-weight('bold');
+    letter-spacing: 0.1em;
+    
+    @if $device == 'desktop' {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    } @else {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+  } @else if $type == 'heading' {
+    font-family: $dd-font-primary;
+    font-weight: dd-weight('semibold');
+    
+    @if $device == 'desktop' {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    } @else {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+  } @else if $type == 'subheading' {
+    font-weight: dd-weight('medium');
+    
+    @if $device == 'desktop' {
+      font-size: 1.25rem;
+      line-height: 1.4;
+    } @else {
+      font-size: 1.125rem;
+      line-height: 1.4;
+    }
+  } @else if $type == 'body' {
+    font-weight: dd-weight('normal');
+    font-size: 1rem;
+    line-height: 1.6;
+  } @else if $type == 'small' {
+    font-weight: dd-weight('normal');
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+}
+
+// Interactive State Mixin
+@mixin dd-interactive($style: 'default') {
+  cursor: pointer;
+  transition: all map-get($dd-transitions, 'normal') map-get($dd-easings, 'ease');
+  
+  @if $style == 'default' {
+    &:hover {
+      transform: scale(1.02);
+      @include dd-glow('subtle');
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
+  } @else if $style == 'glow' {
+    &:hover {
+      transform: scale(1.05);
+      @include dd-glow('normal');
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+  } @else if $style == 'lift' {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($dd-primary, 0.2);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Card Component Mixin
+@mixin dd-card($variant: 'default') {
+  background: $dd-dark-gray;
+  border-radius: 12px;
+  padding: dd-spacing('lg');
+  
+  @if $variant == 'default' {
+    border: 1px solid rgba($dd-primary, 0.2);
+    box-shadow: 0 4px 6px rgba($dd-black, 0.1);
+  } @else if $variant == 'glow' {
+    border: 1px solid rgba($dd-primary, 0.3);
+    @include dd-glow('subtle');
+  } @else if $variant == 'premium' {
+    background: linear-gradient(135deg, $dd-dark-gray 0%, rgba($dd-primary, 0.05) 100%);
+    border: 1px solid rgba($dd-primary, 0.4);
+    @include dd-glow('normal');
+  }
+}
+
+// Button Mixin
+@mixin dd-button($variant: 'primary', $size: 'md') {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  font-family: $dd-font-secondary;
+  font-weight: dd-weight('medium');
+  text-decoration: none;
+  cursor: pointer;
+  transition: all map-get($dd-transitions, 'normal') map-get($dd-easings, 'ease');
+  
+  // Size variations
+  @if $size == 'sm' {
+    padding: dd-spacing('sm') dd-spacing('md');
+    font-size: 0.875rem;
+  } @else if $size == 'md' {
+    padding: dd-spacing('md') dd-spacing('lg');
+    font-size: 1rem;
+  } @else if $size == 'lg' {
+    padding: dd-spacing('lg') dd-spacing('xl');
+    font-size: 1.125rem;
+  }
+  
+  // Style variations
+  @if $variant == 'primary' {
+    @include dd-gradient();
+    color: $dd-white;
+    
+    &:hover {
+      transform: translateY(-1px);
+      @include dd-glow('subtle');
+    }
+  } @else if $variant == 'outline' {
+    background: transparent;
+    border: 2px solid $dd-primary;
+    color: $dd-primary;
+    
+    &:hover {
+      background: $dd-primary;
+      color: $dd-white;
+    }
+  } @else if $variant == 'ghost' {
+    background: transparent;
+    color: $dd-primary;
+    
+    &:hover {
+      background: rgba($dd-primary, 0.1);
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+// Responsive Mixin
+@mixin dd-responsive($breakpoint) {
+  @if map-has-key($dd-breakpoints, $breakpoint) {
+    @media (min-width: map-get($dd-breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $dd-breakpoints map.";
+  }
+}
+
+// Animation Mixins
+@mixin dd-animate-pulse($duration: 3s) {
+  animation: dd-pulse $duration ease-in-out infinite;
+}
+
+@mixin dd-animate-glow($duration: 2s) {
+  animation: dd-glow-pulse $duration ease-in-out infinite;
+}
+
+@mixin dd-animate-float($duration: 6s) {
+  animation: dd-float $duration ease-in-out infinite;
+}
+
+// Focus Ring Mixin (for accessibility)
+@mixin dd-focus-ring($color: $dd-primary) {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba($color, 0.5);
+  }
+  
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+  
+  &:focus-visible {
+    box-shadow: 0 0 0 2px rgba($color, 0.5);
+  }
+}
+
+// =============================================================================
+// KEYFRAMES
+// =============================================================================
+
+@keyframes dd-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes dd-glow-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba($dd-primary, 0.3)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px rgba($dd-primary, 0.6)); 
+  }
+}
+
+@keyframes dd-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+// =============================================================================
+// UTILITY CLASSES
+// =============================================================================
+
+// Logo utility classes
+@each $variant in ('icon', 'horizontal', 'vertical') {
+  @each $size in ('xs', 'sm', 'md', 'lg', 'xl') {
+    .dd-logo--#{$variant}-#{$size} {
+      @include dd-logo($variant, $size);
+    }
+  }
+}
+
+// Color utility classes
+@each $name, $color in $dd-colors {
+  .dd-text--#{$name} { color: $color; }
+  .dd-bg--#{$name} { background-color: $color; }
+  .dd-border--#{$name} { border-color: $color; }
+}
+
+// Spacing utility classes
+@each $name, $size in $dd-spacing {
+  .dd-p--#{$name} { padding: $size; }
+  .dd-m--#{$name} { margin: $size; }
+  .dd-pt--#{$name} { padding-top: $size; }
+  .dd-pb--#{$name} { padding-bottom: $size; }
+  .dd-pl--#{$name} { padding-left: $size; }
+  .dd-pr--#{$name} { padding-right: $size; }
+  .dd-mt--#{$name} { margin-top: $size; }
+  .dd-mb--#{$name} { margin-bottom: $size; }
+  .dd-ml--#{$name} { margin-left: $size; }
+  .dd-mr--#{$name} { margin-right: $size; }
+}
+
+// =============================================================================
+// USAGE EXAMPLES (commented out)
+// =============================================================================
+
+/*
+// Basic logo usage
+.header-logo {
+  @include dd-logo('horizontal', 'md');
+}
+
+.footer-icon {
+  @include dd-logo('icon', 'sm', 'monochrome-green');
+}
+
+// Typography
+.brand-title {
+  @include dd-typography('brand');
+  color: dd-color('primary');
+}
+
+.section-heading {
+  @include dd-typography('heading');
+  color: dd-color('white');
+}
+
+// Interactive elements
+.cta-button {
+  @include dd-button('primary', 'lg');
+  @include dd-focus-ring();
+}
+
+.card {
+  @include dd-card('glow');
+  @include dd-interactive('lift');
+}
+
+// Responsive design
+.hero-logo {
+  @include dd-logo('horizontal', 'xl');
+  
+  @include dd-responsive('md') {
+    @include dd-logo('horizontal', 'lg');
+  }
+  
+  @include dd-responsive('sm') {
+    @include dd-logo('vertical', 'md');
+  }
+}
+
+// Animations
+.animated-logo {
+  @include dd-logo('icon', 'lg');
+  @include dd-animate-pulse();
+  @include dd-glow('normal');
+}
+*/

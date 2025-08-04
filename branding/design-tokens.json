@@ -1,0 +1,393 @@
+{
+  "ddsolutions": {
+    "brand": {
+      "name": "DDSolutions",
+      "tagline": "AI & Automation Solutions",
+      "domain": "ddsolutions.ai",
+      "description": "Transforming businesses through intelligent automation"
+    },
+    "logo": {
+      "variants": {
+        "icon": {
+          "description": "Icon-only version for compact spaces",
+          "path": "icons/logo-icon-base.svg",
+          "aspectRatio": "1:1",
+          "minSize": "16px",
+          "maxSize": "512px",
+          "safeZone": "8px"
+        },
+        "horizontal": {
+          "description": "Primary logo with icon and text side by side",
+          "path": "horizontal/logo-horizontal-base.svg",
+          "aspectRatio": "3.5:1",
+          "minSize": "120x32px",
+          "maxSize": "360x90px",
+          "safeZone": "16px"
+        },
+        "vertical": {
+          "description": "Stacked version with icon above text",
+          "path": "vertical/logo-vertical-base.svg",
+          "aspectRatio": "3:4",
+          "minSize": "60x80px",
+          "maxSize": "150x200px",
+          "safeZone": "12px"
+        }
+      },
+      "sizes": {
+        "xs": {
+          "icon": { "width": 16, "height": 16 },
+          "horizontal": { "width": 120, "height": 32 },
+          "vertical": { "width": 60, "height": 80 }
+        },
+        "sm": {
+          "icon": { "width": 24, "height": 24 },
+          "horizontal": { "width": 160, "height": 40 },
+          "vertical": { "width": 80, "height": 120 }
+        },
+        "md": {
+          "icon": { "width": 32, "height": 32 },
+          "horizontal": { "width": 200, "height": 50 },
+          "vertical": { "width": 100, "height": 140 }
+        },
+        "lg": {
+          "icon": { "width": 48, "height": 48 },
+          "horizontal": { "width": 280, "height": 70 },
+          "vertical": { "width": 120, "height": 160 }
+        },
+        "xl": {
+          "icon": { "width": 64, "height": 64 },
+          "horizontal": { "width": 360, "height": 90 },
+          "vertical": { "width": 150, "height": 200 }
+        }
+      },
+      "specialVersions": {
+        "favicon": {
+          "16": "favicon/favicon-16.svg",
+          "32": "favicon/favicon-32.svg"
+        },
+        "appIcons": {
+          "512": "app-icons/logo-app-512.svg",
+          "1024": "app-icons/logo-app-1024.svg"
+        },
+        "webHeaders": {
+          "200x50": "web-headers/logo-header-200x50.svg"
+        },
+        "socialMedia": {
+          "profile": "social-media/logo-profile-400x400.svg",
+          "banner": "social-media/logo-banner-1500x500.svg"
+        },
+        "monochrome": {
+          "green": "monochrome/logo-monochrome-green.svg",
+          "black": "monochrome/logo-monochrome-black.svg"
+        },
+        "reversed": {
+          "darkBg": "reversed/logo-reversed-dark-bg.svg",
+          "lightBg": "reversed/logo-reversed-light-bg.svg"
+        }
+      }
+    },
+    "colors": {
+      "primary": {
+        "neon": {
+          "value": "#00ff41",
+          "description": "Primary neon green - main brand color",
+          "usage": ["logos", "primary CTAs", "highlights"],
+          "accessibility": {
+            "contrastWhite": 8.2,
+            "contrastBlack": 2.4,
+            "wcagAA": true,
+            "wcagAAA": false
+          }
+        },
+        "bright": {
+          "value": "#39ff5c",
+          "description": "Bright accent green - secondary highlights",
+          "usage": ["accents", "hover states", "gradients"],
+          "accessibility": {
+            "contrastWhite": 6.8,
+            "contrastBlack": 2.9,
+            "wcagAA": true,
+            "wcagAAA": false
+          }
+        },
+        "dark": {
+          "value": "#00cc34",
+          "description": "Dark neon green - text on light backgrounds",
+          "usage": ["text", "borders", "icons"],
+          "accessibility": {
+            "contrastWhite": 10.1,
+            "contrastBlack": 2.0,
+            "wcagAA": true,
+            "wcagAAA": true
+          }
+        },
+        "deeper": {
+          "value": "#009928",
+          "description": "Deeper green - dark theme accents",
+          "usage": ["dark themes", "gradients", "shadows"],
+          "accessibility": {
+            "contrastWhite": 12.5,
+            "contrastBlack": 1.6,
+            "wcagAA": true,
+            "wcagAAA": true
+          }
+        },
+        "darker": {
+          "value": "#007a1f",
+          "description": "Darker green - light theme optimized",
+          "usage": ["light backgrounds", "print", "accessibility"],
+          "accessibility": {
+            "contrastWhite": 15.2,
+            "contrastBlack": 1.3,
+            "wcagAA": true,
+            "wcagAAA": true
+          }
+        },
+        "darkest": {
+          "value": "#005c17",
+          "description": "Darkest green - high contrast text",
+          "usage": ["body text", "high contrast", "print"],
+          "accessibility": {
+            "contrastWhite": 18.1,
+            "contrastBlack": 1.1,
+            "wcagAA": true,
+            "wcagAAA": true
+          }
+        }
+      },
+      "neutral": {
+        "black": {
+          "value": "#000000",
+          "description": "Pure black for backgrounds and text"
+        },
+        "darkGray": {
+          "value": "#1a1a1a",
+          "description": "Dark gray for cards and sections"
+        },
+        "gray": {
+          "value": "#666666",
+          "description": "Medium gray for secondary text"
+        },
+        "lightGray": {
+          "value": "#cccccc",
+          "description": "Light gray for borders and dividers"
+        },
+        "white": {
+          "value": "#ffffff",
+          "description": "Pure white for text and backgrounds"
+        }
+      },
+      "gradients": {
+        "primary": {
+          "value": "linear-gradient(135deg, #00ff41 0%, #39ff5c 30%, #00cc34 70%, #009928 100%)",
+          "description": "Primary brand gradient"
+        },
+        "accent": {
+          "value": "linear-gradient(135deg, #39ff5c 0%, #00ff41 50%, #00cc34 100%)",
+          "description": "Accent gradient for highlights"
+        },
+        "background": {
+          "value": "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #000000 100%)",
+          "description": "Background gradient for dark themes"
+        }
+      }
+    },
+    "typography": {
+      "primary": {
+        "family": "Orbitron",
+        "category": "monospace",
+        "weights": [300, 400, 500, 600, 700, 800, 900],
+        "usage": ["headings", "logo text", "brand elements"],
+        "fallback": "'Courier New', Courier, monospace"
+      },
+      "secondary": {
+        "family": "Inter",
+        "category": "sans-serif",
+        "weights": [300, 400, 500, 600, 700],
+        "usage": ["body text", "interface", "descriptions"],
+        "fallback": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+      },
+      "scales": {
+        "desktop": {
+          "h1": { "size": "3.5rem", "lineHeight": 1.2, "weight": 700 },
+          "h2": { "size": "2.5rem", "lineHeight": 1.3, "weight": 600 },
+          "h3": { "size": "1.75rem", "lineHeight": 1.4, "weight": 500 },
+          "h4": { "size": "1.25rem", "lineHeight": 1.4, "weight": 500 },
+          "body": { "size": "1rem", "lineHeight": 1.6, "weight": 400 },
+          "small": { "size": "0.875rem", "lineHeight": 1.5, "weight": 400 }
+        },
+        "mobile": {
+          "h1": { "size": "2.5rem", "lineHeight": 1.2, "weight": 700 },
+          "h2": { "size": "2rem", "lineHeight": 1.3, "weight": 600 },
+          "h3": { "size": "1.5rem", "lineHeight": 1.4, "weight": 500 },
+          "h4": { "size": "1.125rem", "lineHeight": 1.4, "weight": 500 },
+          "body": { "size": "1rem", "lineHeight": 1.6, "weight": 400 },
+          "small": { "size": "0.875rem", "lineHeight": 1.5, "weight": 400 }
+        }
+      }
+    },
+    "spacing": {
+      "system": "8px grid",
+      "base": 8,
+      "scale": {
+        "xs": 4,
+        "sm": 8,
+        "md": 16,
+        "lg": 24,
+        "xl": 32,
+        "2xl": 48,
+        "3xl": 64,
+        "4xl": 96,
+        "5xl": 128
+      }
+    },
+    "layout": {
+      "containers": {
+        "xs": "100%",
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px"
+      },
+      "grid": {
+        "columns": 12,
+        "gutter": "24px",
+        "margin": {
+          "mobile": "16px",
+          "tablet": "24px",
+          "desktop": "32px"
+        }
+      }
+    },
+    "effects": {
+      "shadows": {
+        "sm": "0 1px 2px 0 rgba(0, 255, 65, 0.05)",
+        "md": "0 4px 6px -1px rgba(0, 255, 65, 0.1)",
+        "lg": "0 10px 15px -3px rgba(0, 255, 65, 0.1)",
+        "xl": "0 20px 25px -5px rgba(0, 255, 65, 0.1)",
+        "glow": "0 0 20px rgba(0, 255, 65, 0.3)"
+      },
+      "borders": {
+        "width": {
+          "thin": "1px",
+          "medium": "2px",
+          "thick": "4px"
+        },
+        "radius": {
+          "sm": "4px",
+          "md": "8px",
+          "lg": "12px",
+          "xl": "16px",
+          "full": "9999px"
+        }
+      },
+      "animations": {
+        "duration": {
+          "fast": "200ms",
+          "normal": "300ms",
+          "slow": "500ms"
+        },
+        "easing": {
+          "ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+          "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+          "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+        }
+      }
+    },
+    "breakpoints": {
+      "xs": "475px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "usage": {
+      "web": {
+        "primaryLogo": "horizontal/logo-horizontal-base.svg",
+        "faviconPath": "favicon/favicon-32.svg",
+        "sizes": ["sm", "md", "lg"],
+        "themes": ["default", "dark", "light"]
+      },
+      "mobile": {
+        "primaryLogo": "vertical/logo-vertical-base.svg",
+        "appIcon": "app-icons/logo-app-1024.svg",
+        "sizes": ["xs", "sm", "md"],
+        "themes": ["default", "dark"]
+      },
+      "print": {
+        "primaryLogo": "monochrome/logo-monochrome-black.svg",
+        "sizes": ["md", "lg", "xl"],
+        "colorMode": "monochrome"
+      },
+      "social": {
+        "profile": "social-media/logo-profile-400x400.svg",
+        "banner": "social-media/logo-banner-1500x500.svg",
+        "theme": "default"
+      }
+    },
+    "accessibility": {
+      "minimumContrast": 4.5,
+      "preferredContrast": 7.0,
+      "colorBlindSafe": true,
+      "focusRingColor": "#00ff41",
+      "focusRingWidth": "2px",
+      "minimumTouchTarget": "44px"
+    },
+    "implementation": {
+      "cssVariables": {
+        "--dd-primary": "#00ff41",
+        "--dd-accent": "#39ff5c",
+        "--dd-dark": "#00cc34",
+        "--dd-deep": "#009928",
+        "--dd-darker": "#007a1f",
+        "--dd-darkest": "#005c17",
+        "--dd-spacing-base": "8px",
+        "--dd-font-primary": "'Orbitron', monospace",
+        "--dd-font-secondary": "'Inter', sans-serif"
+      },
+      "components": {
+        "react": "LogoComponent.jsx",
+        "webComponent": "web-component.js",
+        "cssSprite": "css-sprite.css"
+      },
+      "formats": {
+        "web": ["SVG", "PNG"],
+        "print": ["SVG", "PDF", "EPS"],
+        "development": ["SVG", "React", "Web Components"]
+      }
+    },
+    "guidelines": {
+      "doNot": [
+        "Modify the logo proportions",
+        "Use colors outside the brand palette",
+        "Place logo on busy backgrounds without proper contrast",
+        "Stretch or skew the logo",
+        "Use low-resolution versions for print",
+        "Combine with other logos without proper spacing"
+      ],
+      "do": [
+        "Maintain minimum safe zones around the logo",
+        "Use appropriate size for the context",
+        "Ensure sufficient contrast with background",
+        "Use provided color variations for different backgrounds",
+        "Test readability at small sizes",
+        "Follow accessibility guidelines"
+      ],
+      "safeZones": {
+        "minimum": "0.5x logo height",
+        "preferred": "1x logo height",
+        "contexts": {
+          "web": "16px minimum",
+          "print": "6mm minimum",
+          "merchandise": "10mm minimum"
+        }
+      }
+    },
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-04",
+    "maintainer": "DDSolutions Brand Team"
+  }
+}
