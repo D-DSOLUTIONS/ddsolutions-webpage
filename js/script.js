@@ -537,7 +537,20 @@ const translations = {
         },
         calculator: {
             title: "Calcula tu ROI",
-            subtitle: "Descubre cuánto puedes ahorrar con automatización inteligente"
+            subtitle: "Descubre cuánto puedes ahorrar con automatización inteligente",
+            form: {
+                employees: "Número de empleados",
+                tasks: "Horas en tareas repetitivas por semana",
+                cost: "Costo promedio por hora (€)",
+                calculate: "Calcular ROI"
+            },
+            results: {
+                monthlySavings: "Ahorro mensual",
+                yearlySavings: "Ahorro anual",
+                roi: "ROI esperado",
+                payback: "Tiempo de retorno"
+            },
+            download: "Descargar Informe Personalizado"
         },
         resources: {
             title: "Centro de Recursos",
@@ -581,6 +594,168 @@ const translations = {
                 phone: "Teléfono",
                 schedule: "Horario",
                 scheduleText: "Lun - Vie: 9:00 - 18:00"
+            }
+        },
+        automation: {
+            title: "Revoluciona Tu Negocio con IA",
+            subtitle: "AUTOMATIZACIÓN EMPRESARIAL",
+            description: "Transforma cada departamento de tu empresa con soluciones de automatización inteligente que generan resultados inmediatos",
+            departments: {
+                operations: {
+                    title: "Operaciones",
+                    stat1: "85%",
+                    stat1Label: "Reducción Errores",
+                    stat2: "50h",
+                    stat2Label: "Ahorro Semanal",
+                    solutions: {
+                        rpa: {
+                            title: "RPA Inteligente",
+                            desc: "Automatización de procesos repetitivos 24/7"
+                        },
+                        analytics: {
+                            title: "Analytics Predictivo",
+                            desc: "Predicción de demanda y optimización de stock"
+                        },
+                        logistics: {
+                            title: "Logística IA",
+                            desc: "Rutas optimizadas y gestión inteligente"
+                        }
+                    },
+                    roi: "520%"
+                },
+                finance: {
+                    title: "Finanzas",
+                    stat1: "99.8%",
+                    stat1Label: "Precisión",
+                    stat2: "35h",
+                    stat2Label: "Ahorro Semanal",
+                    solutions: {
+                        accounting: {
+                            title: "Contabilidad IA",
+                            desc: "Procesamiento automático de facturas"
+                        },
+                        forecasting: {
+                            title: "Forecasting",
+                            desc: "Predicción financiera en tiempo real"
+                        },
+                        compliance: {
+                            title: "Compliance Auto",
+                            desc: "Cumplimiento normativo automático"
+                        }
+                    },
+                    roi: "450%"
+                },
+                sales: {
+                    title: "Ventas",
+                    stat1: "3x",
+                    stat1Label: "Más Conversión",
+                    stat2: "40h",
+                    stat2Label: "Ahorro Semanal",
+                    solutions: {
+                        scoring: {
+                            title: "Lead Scoring IA",
+                            desc: "Calificación inteligente de prospectos"
+                        },
+                        chatbots: {
+                            title: "Chatbots Avanzados",
+                            desc: "Asistentes de ventas 24/7"
+                        },
+                        email: {
+                            title: "Email Personalizado",
+                            desc: "Campañas ultra-personalizadas"
+                        }
+                    },
+                    roi: "680%"
+                },
+                marketing: {
+                    title: "Marketing",
+                    stat1: "10x",
+                    stat1Label: "Engagement",
+                    stat2: "45h",
+                    stat2Label: "Ahorro Semanal",
+                    solutions: {
+                        seo: {
+                            title: "SEO Automático",
+                            desc: "Posicionamiento inteligente 24/7"
+                        },
+                        content: {
+                            title: "Content Generator",
+                            desc: "Contenido viral con IA generativa"
+                        },
+                        social: {
+                            title: "Social Media IA",
+                            desc: "Gestión automática de redes"
+                        }
+                    },
+                    roi: "750%"
+                },
+                hr: {
+                    title: "Recursos Humanos",
+                    stat1: "95%",
+                    stat1Label: "Más Rápido",
+                    stat2: "30h",
+                    stat2Label: "Ahorro Semanal",
+                    solutions: {
+                        screening: {
+                            title: "CV Screening IA",
+                            desc: "Selección inteligente de candidatos"
+                        },
+                        onboarding: {
+                            title: "Onboarding Digital",
+                            desc: "Incorporación 100% automatizada"
+                        },
+                        performance: {
+                            title: "Performance IA",
+                            desc: "Evaluación y desarrollo continuo"
+                        }
+                    },
+                    roi: "380%"
+                },
+                it: {
+                    title: "Tecnología",
+                    stat1: "99.9%",
+                    stat1Label: "Uptime",
+                    stat2: "60h",
+                    stat2Label: "Ahorro Semanal",
+                    solutions: {
+                        security: {
+                            title: "Ciberseguridad IA",
+                            desc: "Protección proactiva 24/7"
+                        },
+                        devops: {
+                            title: "DevOps Auto",
+                            desc: "Despliegue y testing automático"
+                        },
+                        support: {
+                            title: "Soporte IA",
+                            desc: "Resolución automática de incidencias"
+                        }
+                    },
+                    roi: "425%"
+                }
+            },
+            globalImpact: {
+                title: "Impacto Global de la Automatización",
+                subtitle: "Resultados reales de nuestros clientes",
+                stats: {
+                    hours: {
+                        title: "Horas Ahorradas",
+                        desc: "Por semana por empresa"
+                    },
+                    costs: {
+                        title: "Reducción Costos",
+                        desc: "Promedio en primer año"
+                    },
+                    savings: {
+                        title: "Ahorro Anual",
+                        desc: "Empresa mediana (50-200 empleados)"
+                    }
+                }
+            },
+            cta: {
+                title: "¿Listo para Revolucionar tu Empresa?",
+                subtitle: "Descubre el potencial de automatización específico para tu negocio",
+                button: "Agendar Consultoría Gratuita"
             }
         },
         footer: {
@@ -653,7 +828,20 @@ const translations = {
         },
         calculator: {
             title: "Calculate your ROI",
-            subtitle: "Discover how much you can save with intelligent automation"
+            subtitle: "Discover how much you can save with intelligent automation",
+            form: {
+                employees: "Number of employees",
+                tasks: "Hours in repetitive tasks per week",
+                cost: "Average cost per hour (€)",
+                calculate: "Calculate ROI"
+            },
+            results: {
+                monthlySavings: "Monthly savings",
+                yearlySavings: "Annual savings",
+                roi: "Expected ROI",
+                payback: "Payback time"
+            },
+            download: "Download Custom Report"
         },
         resources: {
             title: "Resource Center",
@@ -697,6 +885,168 @@ const translations = {
                 phone: "Phone",
                 schedule: "Schedule",
                 scheduleText: "Mon - Fri: 9:00 AM - 6:00 PM"
+            }
+        },
+        automation: {
+            title: "Revolutionize Your Business with AI",
+            subtitle: "ENTERPRISE AUTOMATION",
+            description: "Transform every department of your company with intelligent automation solutions that generate immediate results",
+            departments: {
+                operations: {
+                    title: "Operations",
+                    stat1: "85%",
+                    stat1Label: "Error Reduction",
+                    stat2: "50h",
+                    stat2Label: "Weekly Savings",
+                    solutions: {
+                        rpa: {
+                            title: "Intelligent RPA",
+                            desc: "24/7 repetitive process automation"
+                        },
+                        analytics: {
+                            title: "Predictive Analytics",
+                            desc: "Demand forecasting and stock optimization"
+                        },
+                        logistics: {
+                            title: "AI Logistics",
+                            desc: "Optimized routes and intelligent management"
+                        }
+                    },
+                    roi: "520%"
+                },
+                finance: {
+                    title: "Finance",
+                    stat1: "99.8%",
+                    stat1Label: "Accuracy",
+                    stat2: "35h",
+                    stat2Label: "Weekly Savings",
+                    solutions: {
+                        accounting: {
+                            title: "AI Accounting",
+                            desc: "Automatic invoice processing"
+                        },
+                        forecasting: {
+                            title: "Financial Forecasting",
+                            desc: "Real-time financial prediction"
+                        },
+                        compliance: {
+                            title: "Auto Compliance",
+                            desc: "Automatic regulatory compliance"
+                        }
+                    },
+                    roi: "450%"
+                },
+                sales: {
+                    title: "Sales",
+                    stat1: "3x",
+                    stat1Label: "More Conversion",
+                    stat2: "40h",
+                    stat2Label: "Weekly Savings",
+                    solutions: {
+                        scoring: {
+                            title: "AI Lead Scoring",
+                            desc: "Intelligent prospect qualification"
+                        },
+                        chatbots: {
+                            title: "Advanced Chatbots",
+                            desc: "24/7 sales assistants"
+                        },
+                        email: {
+                            title: "Personalized Email",
+                            desc: "Ultra-personalized campaigns"
+                        }
+                    },
+                    roi: "680%"
+                },
+                marketing: {
+                    title: "Marketing",
+                    stat1: "10x",
+                    stat1Label: "Engagement",
+                    stat2: "45h",
+                    stat2Label: "Weekly Savings",
+                    solutions: {
+                        seo: {
+                            title: "Automatic SEO",
+                            desc: "24/7 intelligent positioning"
+                        },
+                        content: {
+                            title: "Content Generator",
+                            desc: "Viral content with generative AI"
+                        },
+                        social: {
+                            title: "AI Social Media",
+                            desc: "Automatic social network management"
+                        }
+                    },
+                    roi: "750%"
+                },
+                hr: {
+                    title: "Human Resources",
+                    stat1: "95%",
+                    stat1Label: "Faster",
+                    stat2: "30h",
+                    stat2Label: "Weekly Savings",
+                    solutions: {
+                        screening: {
+                            title: "AI CV Screening",
+                            desc: "Intelligent candidate selection"
+                        },
+                        onboarding: {
+                            title: "Digital Onboarding",
+                            desc: "100% automated incorporation"
+                        },
+                        performance: {
+                            title: "AI Performance",
+                            desc: "Continuous evaluation and development"
+                        }
+                    },
+                    roi: "380%"
+                },
+                it: {
+                    title: "Technology",
+                    stat1: "99.9%",
+                    stat1Label: "Uptime",
+                    stat2: "60h",
+                    stat2Label: "Weekly Savings",
+                    solutions: {
+                        security: {
+                            title: "AI Cybersecurity",
+                            desc: "24/7 proactive protection"
+                        },
+                        devops: {
+                            title: "Auto DevOps",
+                            desc: "Automatic deployment and testing"
+                        },
+                        support: {
+                            title: "AI Support",
+                            desc: "Automatic incident resolution"
+                        }
+                    },
+                    roi: "425%"
+                }
+            },
+            globalImpact: {
+                title: "Global Impact of Automation",
+                subtitle: "Real results from our clients",
+                stats: {
+                    hours: {
+                        title: "Hours Saved",
+                        desc: "Per week per company"
+                    },
+                    costs: {
+                        title: "Cost Reduction",
+                        desc: "Average in first year"
+                    },
+                    savings: {
+                        title: "Annual Savings",
+                        desc: "Medium enterprise (50-200 employees)"
+                    }
+                }
+            },
+            cta: {
+                title: "Ready to Revolutionize Your Company?",
+                subtitle: "Discover the automation potential specific for your business",
+                button: "Schedule Free Consultation"
             }
         },
         footer: {
@@ -769,7 +1119,20 @@ const translations = {
         },
         calculator: {
             title: "Calcule seu ROI",
-            subtitle: "Descubra quanto você pode economizar com automação inteligente"
+            subtitle: "Descubra quanto você pode economizar com automação inteligente",
+            form: {
+                employees: "Número de funcionários",
+                tasks: "Horas em tarefas repetitivas por semana",
+                cost: "Custo médio por hora (€)",
+                calculate: "Calcular ROI"
+            },
+            results: {
+                monthlySavings: "Economia mensal",
+                yearlySavings: "Economia anual",
+                roi: "ROI esperado",
+                payback: "Tempo de retorno"
+            },
+            download: "Baixar Relatório Personalizado"
         },
         resources: {
             title: "Centro de Recursos",
@@ -813,6 +1176,168 @@ const translations = {
                 phone: "Telefone",
                 schedule: "Horário",
                 scheduleText: "Seg - Sex: 9:00 - 18:00"
+            }
+        },
+        automation: {
+            title: "Revolucione Seu Negócio com IA",
+            subtitle: "AUTOMAÇÃO EMPRESARIAL",
+            description: "Transforme cada departamento da sua empresa com soluções de automação inteligente que geram resultados imediatos",
+            departments: {
+                operations: {
+                    title: "Operações",
+                    stat1: "85%",
+                    stat1Label: "Redução de Erros",
+                    stat2: "50h",
+                    stat2Label: "Economia Semanal",
+                    solutions: {
+                        rpa: {
+                            title: "RPA Inteligente",
+                            desc: "Automação de processos repetitivos 24/7"
+                        },
+                        analytics: {
+                            title: "Analytics Preditivo",
+                            desc: "Previsão de demanda e otimização de estoque"
+                        },
+                        logistics: {
+                            title: "Logística IA",
+                            desc: "Rotas otimizadas e gestão inteligente"
+                        }
+                    },
+                    roi: "520%"
+                },
+                finance: {
+                    title: "Finanças",
+                    stat1: "99.8%",
+                    stat1Label: "Precisão",
+                    stat2: "35h",
+                    stat2Label: "Economia Semanal",
+                    solutions: {
+                        accounting: {
+                            title: "Contabilidade IA",
+                            desc: "Processamento automático de faturas"
+                        },
+                        forecasting: {
+                            title: "Previsão Financeira",
+                            desc: "Predição financeira em tempo real"
+                        },
+                        compliance: {
+                            title: "Compliance Automático",
+                            desc: "Conformidade regulatória automática"
+                        }
+                    },
+                    roi: "450%"
+                },
+                sales: {
+                    title: "Vendas",
+                    stat1: "3x",
+                    stat1Label: "Mais Conversão",
+                    stat2: "40h",
+                    stat2Label: "Economia Semanal",
+                    solutions: {
+                        scoring: {
+                            title: "Lead Scoring IA",
+                            desc: "Qualificação inteligente de prospects"
+                        },
+                        chatbots: {
+                            title: "Chatbots Avançados",
+                            desc: "Assistentes de vendas 24/7"
+                        },
+                        email: {
+                            title: "Email Personalizado",
+                            desc: "Campanhas ultra-personalizadas"
+                        }
+                    },
+                    roi: "680%"
+                },
+                marketing: {
+                    title: "Marketing",
+                    stat1: "10x",
+                    stat1Label: "Engajamento",
+                    stat2: "45h",
+                    stat2Label: "Economia Semanal",
+                    solutions: {
+                        seo: {
+                            title: "SEO Automático",
+                            desc: "Posicionamento inteligente 24/7"
+                        },
+                        content: {
+                            title: "Gerador de Conteúdo",
+                            desc: "Conteúdo viral com IA generativa"
+                        },
+                        social: {
+                            title: "Social Media IA",
+                            desc: "Gestão automática de redes sociais"
+                        }
+                    },
+                    roi: "750%"
+                },
+                hr: {
+                    title: "Recursos Humanos",
+                    stat1: "95%",
+                    stat1Label: "Mais Rápido",
+                    stat2: "30h",
+                    stat2Label: "Economia Semanal",
+                    solutions: {
+                        screening: {
+                            title: "Triagem de CV IA",
+                            desc: "Seleção inteligente de candidatos"
+                        },
+                        onboarding: {
+                            title: "Onboarding Digital",
+                            desc: "Integração 100% automatizada"
+                        },
+                        performance: {
+                            title: "Performance IA",
+                            desc: "Avaliação e desenvolvimento contínuo"
+                        }
+                    },
+                    roi: "380%"
+                },
+                it: {
+                    title: "Tecnologia",
+                    stat1: "99.9%",
+                    stat1Label: "Uptime",
+                    stat2: "60h",
+                    stat2Label: "Economia Semanal",
+                    solutions: {
+                        security: {
+                            title: "Cibersegurança IA",
+                            desc: "Proteção proativa 24/7"
+                        },
+                        devops: {
+                            title: "DevOps Automático",
+                            desc: "Deploy e testes automáticos"
+                        },
+                        support: {
+                            title: "Suporte IA",
+                            desc: "Resolução automática de incidentes"
+                        }
+                    },
+                    roi: "425%"
+                }
+            },
+            globalImpact: {
+                title: "Impacto Global da Automação",
+                subtitle: "Resultados reais dos nossos clientes",
+                stats: {
+                    hours: {
+                        title: "Horas Economizadas",
+                        desc: "Por semana por empresa"
+                    },
+                    costs: {
+                        title: "Redução de Custos",
+                        desc: "Média no primeiro ano"
+                    },
+                    savings: {
+                        title: "Economia Anual",
+                        desc: "Empresa média (50-200 funcionários)"
+                    }
+                }
+            },
+            cta: {
+                title: "Pronto para Revolucionar sua Empresa?",
+                subtitle: "Descubra o potencial de automação específico para seu negócio",
+                button: "Agendar Consultoria Gratuita"
             }
         },
         footer: {
@@ -873,6 +1398,81 @@ function updateContent(lang) {
     const heroBtns = document.querySelectorAll('.hero-buttons .btn');
     if (heroBtns[0]) heroBtns[0].textContent = t.hero.cta1;
     if (heroBtns[1]) heroBtns[1].textContent = t.hero.cta2;
+    
+    // Automation section
+    if (t.automation) {
+        const automationTitle = document.querySelector('.automation-possibilities h2');
+        const automationSubtitle = document.querySelector('.automation-possibilities .section-subtitle');
+        const automationDesc = document.querySelector('.automation-possibilities .section-description');
+        
+        if (automationTitle) automationTitle.textContent = t.automation.title;
+        if (automationSubtitle) automationSubtitle.textContent = t.automation.subtitle;
+        if (automationDesc) automationDesc.textContent = t.automation.description;
+        
+        // Update department cards
+        const departments = ['operations', 'finance', 'sales', 'marketing', 'hr', 'it'];
+        departments.forEach(dept => {
+            const deptData = t.automation.departments[dept];
+            if (deptData) {
+                const card = document.querySelector(`[data-dept="${dept}"]`);
+                if (card) {
+                    // Update title
+                    const title = card.querySelector('h3');
+                    if (title) title.textContent = deptData.title;
+                    
+                    // Update stats
+                    const statNumbers = card.querySelectorAll('.stat-number');
+                    const statLabels = card.querySelectorAll('.stat-label');
+                    if (statNumbers[0]) statNumbers[0].textContent = deptData.stat1;
+                    if (statLabels[0]) statLabels[0].textContent = deptData.stat1Label;
+                    if (statNumbers[1]) statNumbers[1].textContent = deptData.stat2;
+                    if (statLabels[1]) statLabels[1].textContent = deptData.stat2Label;
+                    
+                    // Update solutions
+                    const solutionItems = card.querySelectorAll('.solution-item');
+                    const solutions = Object.values(deptData.solutions);
+                    solutionItems.forEach((item, index) => {
+                        if (solutions[index]) {
+                            const strong = item.querySelector('strong');
+                            const p = item.querySelector('p');
+                            if (strong) strong.textContent = solutions[index].title;
+                            if (p) p.textContent = solutions[index].desc;
+                        }
+                    });
+                    
+                    // Update ROI badge
+                    const roiBadge = card.querySelector('.roi-badge strong');
+                    if (roiBadge) roiBadge.textContent = deptData.roi;
+                }
+            }
+        });
+        
+        // Update global impact section
+        const impactTitle = document.querySelector('.impact-header h3');
+        const impactSubtitle = document.querySelector('.impact-header p');
+        if (impactTitle) impactTitle.textContent = t.automation.globalImpact.title;
+        if (impactSubtitle) impactSubtitle.textContent = t.automation.globalImpact.subtitle;
+        
+        // Update impact stats
+        const statInfos = document.querySelectorAll('.stat-info');
+        const statKeys = ['hours', 'costs', 'savings'];
+        statInfos.forEach((info, index) => {
+            if (statKeys[index] && t.automation.globalImpact.stats[statKeys[index]]) {
+                const h4 = info.querySelector('h4');
+                const p = info.querySelector('p');
+                if (h4) h4.textContent = t.automation.globalImpact.stats[statKeys[index]].title;
+                if (p) p.textContent = t.automation.globalImpact.stats[statKeys[index]].desc;
+            }
+        });
+        
+        // Update CTA section
+        const ctaTitle = document.querySelector('.automation-cta h3');
+        const ctaSubtitle = document.querySelector('.automation-cta p');
+        const ctaButton = document.querySelector('.automation-cta .btn');
+        if (ctaTitle) ctaTitle.textContent = t.automation.cta.title;
+        if (ctaSubtitle) ctaSubtitle.textContent = t.automation.cta.subtitle;
+        if (ctaButton) ctaButton.textContent = t.automation.cta.button;
+    }
     
     // Update other sections...
     const sectionsToUpdate = [
