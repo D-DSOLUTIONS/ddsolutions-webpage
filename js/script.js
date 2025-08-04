@@ -84,7 +84,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all animatable elements
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.service-card, .about-content, .contact-content, .metric-card, .pricing-card, .testimonial-card, .blog-card, .partner-item').forEach(el => {
+    document.querySelectorAll('.service-card, .about-content, .contact-content, .metric-card, .pricing-card, .testimonial-card, .blog-card, .partner-item, .automation-category').forEach(el => {
         observer.observe(el);
     });
 });
