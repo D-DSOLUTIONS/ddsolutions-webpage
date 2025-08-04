@@ -152,6 +152,14 @@ Users can manually change the language using the selector in the navigation bar.
 - ✅ **Multi-format Support** - 16px, 32px favicons and various logo variations
 - ✅ **Brand Consistency** - Unified DIGITAL TECH identity throughout all pages
 
+### 🎨 UI/UX Improvements (v3.1) - Latest Updates
+- ✅ **ROI Calculator Redesign** - Eliminated green backgrounds, improved transparency and readability
+- ✅ **Partners Section Overhaul** - Modern white card design with premium effects and better visibility
+- ✅ **Google Cloud Partner Enhancement** - Added official Google logo with professional vertical layout
+- ✅ **CTA Section Refinement** - Removed green backgrounds, reduced size, glass morphism effects
+- ✅ **Orbital Animation Optimization** - Increased separation between tech bubbles for better readability
+- ✅ **Typography Improvements** - Enhanced text visibility and contrast across all sections
+
 ### 🎯 Icon System (NEW!)
 - **Service Icons**: Neural AI networks, automation gears, code windows, strategy diagrams
 - **Department Icons**: Operations gears, finance symbols, sales charts, marketing targets
