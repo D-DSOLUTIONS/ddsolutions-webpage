@@ -8,6 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DDSolutions">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDQwIDQwIiBmaWxsPSIjZmYwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yMCAyTDM1IDEwVjMwTDIwIDM4TDUgMzBWMTBMMjAgMloiIHN0cm9rZT0iI2ZmMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTIwIDEwTDI4IDE0VjI2TDIwIDMwTDEyIDI2VjE0TDIwIDEwWiIgZmlsbD0iI2ZmMDAwMCIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=">
 </head>
 <body>
     <nav class="navbar">
@@ -24,9 +30,28 @@
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
+                <button class="theme-toggle" aria-label="Cambiar tema">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
                 <button class="menu-toggle" aria-label="Menú">
                     <span></span>
                     <span></span>
@@ -169,6 +194,377 @@
                         <li>Estrategia Digital</li>
                         <li>Optimización de Procesos</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metrics">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-gradient">Impacto en Tiempo Real</span>
+            </h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">⚡</div>
+                    <h3 class="metric-number" data-target="15789">0</h3>
+                    <p>Procesos Automatizados</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⏱️</div>
+                    <h3 class="metric-number" data-target="892345">0</h3>
+                    <p>Horas Ahorradas</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">💰</div>
+                    <h3 class="metric-number" data-prefix="$" data-target="4500000">0</h3>
+                    <p>Ahorro Generado</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">🌍</div>
+                    <h3 class="metric-number" data-target="47">0</h3>
+                    <p>Países Activos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="pricing">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-gradient">Planes y Precios</span>
+            </h2>
+            <p class="section-subtitle">Soluciones adaptadas a cada etapa de tu crecimiento</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">999</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="features">
+                        <li>✓ Hasta 5 automatizaciones</li>
+                        <li>✓ Soporte por email</li>
+                        <li>✓ Panel de control básico</li>
+                        <li>✓ 1 usuario</li>
+                        <li>✓ Actualizaciones mensuales</li>
+                    </ul>
+                    <button class="btn btn-secondary">Empezar</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="badge">Más Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">2999</span>
+                        <span class="period">/mes</span>
+                    </div>
+                    <ul class="features">
+                        <li>✓ Automatizaciones ilimitadas</li>
+                        <li>✓ Soporte prioritario 24/7</li>
+                        <li>✓ Panel avanzado + API</li>
+                        <li>✓ Hasta 10 usuarios</li>
+                        <li>✓ IA personalizada</li>
+                        <li>✓ Integraciones premium</li>
+                    </ul>
+                    <button class="btn btn-primary">Empezar Gratis</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="custom">Personalizado</span>
+                    </div>
+                    <ul class="features">
+                        <li>✓ Todo de Professional</li>
+                        <li>✓ Usuarios ilimitados</li>
+                        <li>✓ SLA garantizado</li>
+                        <li>✓ Gestor de cuenta dedicado</li>
+                        <li>✓ Formación personalizada</li>
+                        <li>✓ On-premise disponible</li>
+                    </ul>
+                    <button class="btn btn-secondary">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-gradient">Lo que dicen nuestros clientes</span>
+            </h2>
+            <p class="section-subtitle">Casos de éxito que transforman empresas</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "DDSolutions transformó completamente nuestros procesos. Ahorramos más de 200 horas al mes en tareas repetitivas gracias a su automatización con IA."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Maria+Garcia&background=ff0000&color=fff" alt="Maria Garcia">
+                        <div>
+                            <h4>María García</h4>
+                            <p>CEO, TechCorp España</p>
+                        </div>
+                    </div>
+                    <div class="results">
+                        <span class="result-item">80% menos errores</span>
+                        <span class="result-item">3x más rápido</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "La implementación de IA en nuestro servicio al cliente redujo los tiempos de respuesta en un 90%. Increíble ROI en solo 3 meses."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=John+Smith&background=ff0000&color=fff" alt="John Smith">
+                        <div>
+                            <h4>John Smith</h4>
+                            <p>CTO, Global Solutions</p>
+                        </div>
+                    </div>
+                    <div class="results">
+                        <span class="result-item">90% más rápido</span>
+                        <span class="result-item">€2M ahorrados</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "El equipo de DDSolutions no solo implementó la tecnología, sino que transformó nuestra cultura empresarial hacia la innovación."
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=Ana+Silva&background=ff0000&color=fff" alt="Ana Silva">
+                        <div>
+                            <h4>Ana Silva</h4>
+                            <p>Directora de Innovación, Banco Digital</p>
+                        </div>
+                    </div>
+                    <div class="results">
+                        <span class="result-item">100% digitalizado</span>
+                        <span class="result-item">5x ROI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-nav">
+                <button class="nav-btn prev" onclick="changeTestimonial(-1)">←</button>
+                <div class="nav-dots">
+                    <span class="dot active" onclick="showTestimonial(0)"></span>
+                    <span class="dot" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                </div>
+                <button class="nav-btn next" onclick="changeTestimonial(1)">→</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="roi-calculator">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-gradient">Calcula tu ROI</span>
+            </h2>
+            <p class="section-subtitle">Descubre cuánto puedes ahorrar con automatización inteligente</p>
+            
+            <div class="calculator-wrapper">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="employees">Número de empleados</label>
+                        <input type="range" id="employees" min="10" max="1000" value="50">
+                        <span class="value-display" id="employees-value">50</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="tasks">Horas en tareas repetitivas por semana</label>
+                        <input type="range" id="tasks" min="10" max="200" value="40">
+                        <span class="value-display" id="tasks-value">40</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hourly-cost">Costo promedio por hora (€)</label>
+                        <input type="range" id="hourly-cost" min="20" max="100" value="35">
+                        <span class="value-display" id="hourly-cost-value">35</span>
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <h3>Resultados Estimados</h3>
+                    <div class="result-item">
+                        <span class="label">Ahorro Mensual</span>
+                        <span class="value" id="monthly-savings">€5,600</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Ahorro Anual</span>
+                        <span class="value" id="yearly-savings">€67,200</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">ROI Esperado</span>
+                        <span class="value" id="roi-percentage">450%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Tiempo de Retorno</span>
+                        <span class="value" id="payback-time">2.5 meses</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="downloadROIReport()">Descargar Informe Completo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recursos" class="resources">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-gradient">Centro de Recursos</span>
+            </h2>
+            <p class="section-subtitle">Conocimiento y herramientas para tu transformación digital</p>
+            
+            <div class="resources-tabs">
+                <button class="tab-btn active" onclick="showResourceTab('blog')">Blog</button>
+                <button class="tab-btn" onclick="showResourceTab('guides')">Guías</button>
+                <button class="tab-btn" onclick="showResourceTab('webinars')">Webinars</button>
+                <button class="tab-btn" onclick="showResourceTab('tools')">Herramientas</button>
+            </div>
+            
+            <div class="resources-content">
+                <div id="blog-tab" class="tab-content active">
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <div class="placeholder-image">🤖</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="category">IA & Automatización</span>
+                                <h3>10 Formas de Usar IA para Mejorar tu Productividad en 2024</h3>
+                                <p>Descubre las últimas tendencias en inteligencia artificial y cómo implementarlas en tu empresa.</p>
+                                <a href="#" class="read-more">Leer más →</a>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <div class="placeholder-image">📊</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="category">Casos de Éxito</span>
+                                <h3>Cómo Banco Digital Ahorró €5M con RPA</h3>
+                                <p>Caso de estudio completo sobre la transformación digital en el sector financiero.</p>
+                                <a href="#" class="read-more">Leer más →</a>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">
+                                <div class="placeholder-image">🚀</div>
+                            </div>
+                            <div class="blog-content">
+                                <span class="category">Tecnología</span>
+                                <h3>GPT-4 vs Claude: ¿Cuál es Mejor para tu Negocio?</h3>
+                                <p>Comparativa detallada de los modelos de IA más avanzados del mercado.</p>
+                                <a href="#" class="read-more">Leer más →</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div id="guides-tab" class="tab-content">
+                    <div class="guides-list">
+                        <div class="guide-item">
+                            <div class="guide-icon">📘</div>
+                            <h3>Guía Completa de Automatización RPA</h3>
+                            <p>50 páginas con todo lo que necesitas saber sobre RPA</p>
+                            <button class="btn btn-secondary">Descargar PDF</button>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">📗</div>
+                            <h3>Manual de Implementación de IA</h3>
+                            <p>Paso a paso para integrar IA en tu empresa</p>
+                            <button class="btn btn-secondary">Descargar PDF</button>
+                        </div>
+                        <div class="guide-item">
+                            <div class="guide-icon">📕</div>
+                            <h3>Checklist de Transformación Digital</h3>
+                            <p>Evalúa el nivel de digitalización de tu empresa</p>
+                            <button class="btn btn-secondary">Descargar PDF</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="webinars-tab" class="tab-content">
+                    <div class="webinars-grid">
+                        <div class="webinar-card">
+                            <div class="webinar-date">15 Dic 2024</div>
+                            <h3>IA Generativa para Empresas</h3>
+                            <p>Aprende a implementar ChatGPT y Claude en tu flujo de trabajo</p>
+                            <button class="btn btn-primary">Registrarse</button>
+                        </div>
+                        <div class="webinar-card">
+                            <div class="webinar-date">20 Dic 2024</div>
+                            <h3>Automatización sin Código</h3>
+                            <p>Crea automatizaciones complejas sin programar</p>
+                            <button class="btn btn-primary">Registrarse</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tools-tab" class="tab-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">🔧</div>
+                            <h3>Analizador de Procesos</h3>
+                            <p>Identifica qué procesos puedes automatizar</p>
+                            <button class="btn btn-secondary">Usar Herramienta</button>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📈</div>
+                            <h3>Benchmark de IA</h3>
+                            <p>Compara tu nivel de IA con tu industria</p>
+                            <button class="btn btn-secondary">Usar Herramienta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="text-gradient">Partners y Certificaciones</span>
+            </h2>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" alt="OpenAI Partner">
+                </div>
+                <div class="partner-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Partner">
+                </div>
+                <div class="partner-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft Partner">
+                </div>
+                <div class="partner-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Cloud Partner">
+                </div>
+            </div>
+            <div class="certifications">
+                <div class="cert-item">
+                    <div class="cert-icon">🏆</div>
+                    <p>ISO 27001</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🔒</div>
+                    <p>GDPR Compliant</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">✓</div>
+                    <p>SOC 2 Type II</p>
                 </div>
             </div>
         </div>
@@ -358,6 +754,67 @@
             </div>
         </div>
     </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-widget">
+        <button class="chatbot-toggle" aria-label="Abrir chat">
+            <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <div class="bot-info">
+                    <div class="bot-avatar">🤖</div>
+                    <div>
+                        <h4>DD Assistant</h4>
+                        <span class="status">En línea</span>
+                    </div>
+                </div>
+                <button class="minimize-btn" aria-label="Minimizar">−</button>
+            </div>
+            
+            <div class="chatbot-messages">
+                <div class="message bot">
+                    <div class="message-content">
+                        ¡Hola! Soy tu asistente de IA. ¿En qué puedo ayudarte hoy?
+                    </div>
+                </div>
+                <div class="quick-replies">
+                    <button onclick="sendQuickReply('Información sobre servicios')">Servicios</button>
+                    <button onclick="sendQuickReply('Ver precios')">Precios</button>
+                    <button onclick="sendQuickReply('Agendar demo')">Demo</button>
+                    <button onclick="sendQuickReply('Contactar ventas')">Ventas</button>
+                </div>
+            </div>
+            
+            <form class="chatbot-input" onsubmit="sendMessage(event)">
+                <input type="text" placeholder="Escribe tu mensaje..." id="chat-input">
+                <button type="submit" aria-label="Enviar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Calendar Integration Modal -->
+    <div class="modal" id="calendar-modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeCalendarModal()">&times;</span>
+            <h2>Agenda una Demo</h2>
+            <div class="calendar-wrapper">
+                <iframe src="https://calendly.com/ddsolutions-demo/30min" width="100%" height="600" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

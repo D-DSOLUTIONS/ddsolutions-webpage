@@ -1,3 +1,13 @@
+// Global variables
+let currentTestimonial = 0;
+let currentLang = 'es';
+let metrics = {
+    processes: 15789,
+    hours: 892345,
+    savings: 4500000,
+    countries: 47
+};
+
 // Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -26,9 +36,22 @@ const contactForm = document.getElementById('contactForm');
 contactForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Here you would normally send the form data to a server
-    alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-    contactForm.reset();
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+    
+    // Show loading state
+    const submitBtn = contactForm.querySelector('.btn-primary');
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = '<div class="loading"></div> Enviando...';
+    submitBtn.disabled = true;
+    
+    // Simulate form submission
+    setTimeout(() => {
+        showNotification('¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto.', 'success');
+        contactForm.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    }, 2000);
 });
 
 // Add parallax effect to hero section
@@ -50,56 +73,404 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            
+            // Animate metrics counters
+            if (entry.target.classList.contains('metric-card')) {
+                animateMetricCounter(entry.target);
+            }
         }
     });
 }, observerOptions);
 
-// Observe all service cards and other elements
-document.querySelectorAll('.service-card, .about-content, .contact-content').forEach(el => {
-    observer.observe(el);
+// Observe all animatable elements
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.service-card, .about-content, .contact-content, .metric-card, .pricing-card, .testimonial-card, .blog-card, .partner-item').forEach(el => {
+        observer.observe(el);
+    });
 });
 
-// Add animation classes
-document.addEventListener('DOMContentLoaded', () => {
-    const style = document.createElement('style');
-    style.textContent = `
-        .service-card, .about-content, .contact-content {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+// Metrics counter animation
+function animateMetricCounter(card) {
+    const numberElement = card.querySelector('.metric-number');
+    const target = parseInt(numberElement.dataset.target);
+    const prefix = numberElement.dataset.prefix || '';
+    const duration = 2000;
+    const increment = target / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
         }
         
-        .service-card.visible, .about-content.visible, .contact-content.visible {
-            opacity: 1;
-            transform: translateY(0);
+        let displayValue = Math.floor(current);
+        if (displayValue >= 1000000) {
+            displayValue = (displayValue / 1000000).toFixed(1) + 'M';
+        } else if (displayValue >= 1000) {
+            displayValue = (displayValue / 1000).toFixed(0) + 'K';
         }
         
-        .nav-links.active {
-            display: flex;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            flex-direction: column;
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 0, 0, 0.2);
-        }
+        numberElement.textContent = prefix + displayValue;
+    }, 16);
+}
+
+// Testimonials slider
+function showTestimonial(index) {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    
+    testimonials.forEach((testimonial, i) => {
+        testimonial.classList.toggle('active', i === index);
+    });
+    
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+    
+    currentTestimonial = index;
+}
+
+function changeTestimonial(direction) {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const newIndex = (currentTestimonial + direction + testimonials.length) % testimonials.length;
+    showTestimonial(newIndex);
+}
+
+// Auto-rotate testimonials
+setInterval(() => {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    if (testimonials.length > 0) {
+        changeTestimonial(1);
+    }
+}, 8000);
+
+// ROI Calculator
+function initROICalculator() {
+    const employeesSlider = document.getElementById('employees');
+    const tasksSlider = document.getElementById('tasks');
+    const costSlider = document.getElementById('hourly-cost');
+    
+    if (!employeesSlider) return;
+    
+    const employeesValue = document.getElementById('employees-value');
+    const tasksValue = document.getElementById('tasks-value');
+    const costValue = document.getElementById('hourly-cost-value');
+    
+    function updateROI() {
+        const employees = parseInt(employeesSlider.value);
+        const tasks = parseInt(tasksSlider.value);
+        const cost = parseInt(costSlider.value);
         
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
+        employeesValue.textContent = employees;
+        tasksValue.textContent = tasks;
+        costValue.textContent = cost;
         
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
+        // Calculate savings (assuming 60% automation efficiency)
+        const weeklyHours = tasks * 0.6; // 60% can be automated
+        const weeklySavings = weeklyHours * cost;
+        const monthlySavings = weeklySavings * 4.33;
+        const yearlySavings = monthlySavings * 12;
         
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
+        // Update results
+        document.getElementById('monthly-savings').textContent = `€${monthlySavings.toLocaleString()}`;
+        document.getElementById('yearly-savings').textContent = `€${yearlySavings.toLocaleString()}`;
+        
+        // ROI calculation (assuming implementation cost of 6 months of savings)
+        const implementationCost = monthlySavings * 6;
+        const roi = ((yearlySavings - implementationCost) / implementationCost * 100);
+        document.getElementById('roi-percentage').textContent = `${Math.round(roi)}%`;
+        
+        // Payback time
+        const paybackMonths = implementationCost / monthlySavings;
+        document.getElementById('payback-time').textContent = `${paybackMonths.toFixed(1)} meses`;
+    }
+    
+    employeesSlider.addEventListener('input', updateROI);
+    tasksSlider.addEventListener('input', updateROI);
+    costSlider.addEventListener('input', updateROI);
+    
+    // Initial calculation
+    updateROI();
+}
+
+// Download ROI Report
+function downloadROIReport() {
+    showNotification('Generando informe personalizado...', 'success');
+    
+    // Simulate report generation
+    setTimeout(() => {
+        const element = document.createElement('a');
+        const content = generateROIReport();
+        const file = new Blob([content], { type: 'text/plain' });
+        element.href = URL.createObjectURL(file);
+        element.download = 'informe-roi-ddsolutions.txt';
+        element.click();
+        
+        showNotification('Informe descargado correctamente', 'success');
+    }, 2000);
+}
+
+function generateROIReport() {
+    const employees = document.getElementById('employees-value').textContent;
+    const tasks = document.getElementById('tasks-value').textContent;
+    const cost = document.getElementById('hourly-cost-value').textContent;
+    const monthly = document.getElementById('monthly-savings').textContent;
+    const yearly = document.getElementById('yearly-savings').textContent;
+    const roi = document.getElementById('roi-percentage').textContent;
+    const payback = document.getElementById('payback-time').textContent;
+    
+    return `
+INFORME DE ROI - DDSolutions.ai
+================================
+
+PARÁMETROS DE ENTRADA:
+- Número de empleados: ${employees}
+- Horas en tareas repetitivas: ${tasks}/semana
+- Costo promedio por hora: €${cost}
+
+RESULTADOS ESTIMADOS:
+- Ahorro mensual: ${monthly}
+- Ahorro anual: ${yearly}
+- ROI esperado: ${roi}
+- Tiempo de retorno: ${payback}
+
+RECOMENDACIONES:
+1. Comenzar con la automatización de procesos más repetitivos
+2. Implementar soluciones de IA gradualmente
+3. Formar al equipo en nuevas tecnologías
+4. Monitorear métricas de eficiencia continuamente
+
+¿Listo para comenzar tu transformación digital?
+Contacta con nosotros: contacto@ddsolutions.ai
     `;
-    document.head.appendChild(style);
-});
+}
+
+// Resources tabs
+function showResourceTab(tabName) {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    document.querySelector(`[onclick="showResourceTab('${tabName}')"]`).classList.add('active');
+    document.getElementById(`${tabName}-tab`).classList.add('active');
+}
+
+// Theme toggle
+function initThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const preferredTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Set initial theme
+    if (preferredTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    }
+    
+    themeToggle?.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        showNotification(
+            `Tema ${newTheme === 'light' ? 'claro' : 'oscuro'} activado`, 
+            'success'
+        );
+    });
+}
+
+// Chatbot functionality
+function initChatbot() {
+    const chatbotToggle = document.querySelector('.chatbot-toggle');
+    const chatbotWindow = document.querySelector('.chatbot-window');
+    const minimizeBtn = document.querySelector('.minimize-btn');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.querySelector('.chatbot-messages');
+    
+    chatbotToggle?.addEventListener('click', () => {
+        chatbotToggle.classList.toggle('active');
+        chatbotWindow.classList.toggle('active');
+    });
+    
+    minimizeBtn?.addEventListener('click', () => {
+        chatbotToggle.classList.remove('active');
+        chatbotWindow.classList.remove('active');
+    });
+    
+    // Chat responses database
+    const chatResponses = {
+        'servicios': 'Ofrecemos 4 servicios principales:\n• Inteligencia Artificial personalizada\n• Automatización RPA\n• Desarrollo de software\n• Consultoría IT\n\n¿Te interesa alguno en particular?',
+        'precios': 'Tenemos 3 planes:\n• Starter: €999/mes\n• Professional: €2999/mes\n• Enterprise: Personalizado\n\n¿Quieres agendar una demo gratuita?',
+        'demo': '¡Perfecto! Te voy a abrir nuestro calendario para que puedas agendar una demo personalizada.',
+        'ventas': 'Te conectaré con nuestro equipo de ventas. Mientras tanto, ¿podrías contarme más sobre tu proyecto?',
+        'default': 'Gracias por tu mensaje. Un especialista te contactará pronto. ¿Hay algo específico en lo que pueda ayudarte ahora?'
+    };
+    
+    window.sendMessage = function(event) {
+        if (event) event.preventDefault();
+        
+        const message = chatInput.value.trim();
+        if (!message) return;
+        
+        // Add user message
+        addChatMessage(message, 'user');
+        chatInput.value = '';
+        
+        // Simulate bot response
+        setTimeout(() => {
+            const response = getBotResponse(message);
+            addChatMessage(response, 'bot');
+            
+            if (message.toLowerCase().includes('demo')) {
+                setTimeout(() => {
+                    document.getElementById('calendar-modal').classList.add('active');
+                }, 1000);
+            }
+        }, 1000);
+    };
+    
+    window.sendQuickReply = function(message) {
+        addChatMessage(message, 'user');
+        
+        setTimeout(() => {
+            const response = getBotResponse(message);
+            addChatMessage(response, 'bot');
+            
+            if (message.toLowerCase().includes('demo')) {
+                setTimeout(() => {
+                    document.getElementById('calendar-modal').classList.add('active');
+                }, 1000);
+            }
+        }, 1000);
+    };
+    
+    function addChatMessage(message, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        messageDiv.innerHTML = `<div class="message-content">${message}</div>`;
+        
+        // Remove quick replies before adding new message
+        const quickReplies = chatMessages.querySelector('.quick-replies');
+        if (quickReplies && sender === 'user') {
+            quickReplies.style.display = 'none';
+        }
+        
+        chatMessages.insertBefore(messageDiv, chatMessages.lastElementChild);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    function getBotResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        if (lowerMessage.includes('servicio') || lowerMessage.includes('service')) {
+            return chatResponses.servicios;
+        } else if (lowerMessage.includes('precio') || lowerMessage.includes('plan') || lowerMessage.includes('cost')) {
+            return chatResponses.precios;
+        } else if (lowerMessage.includes('demo') || lowerMessage.includes('reunión')) {
+            return chatResponses.demo;
+        } else if (lowerMessage.includes('ventas') || lowerMessage.includes('contacto')) {
+            return chatResponses.ventas;
+        } else {
+            return chatResponses.default;
+        }
+    }
+}
+
+// Calendar modal
+window.closeCalendarModal = function() {
+    document.getElementById('calendar-modal').classList.remove('active');
+};
+
+// Notification system
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 4000);
+}
+
+// PWA functionality
+function initPWA() {
+    let deferredPrompt;
+    const pwaInstallBtn = document.createElement('button');
+    pwaInstallBtn.className = 'pwa-install';
+    pwaInstallBtn.textContent = 'Instalar App';
+    pwaInstallBtn.style.display = 'none';
+    document.body.appendChild(pwaInstallBtn);
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        pwaInstallBtn.classList.add('show');
+    });
+    
+    pwaInstallBtn.addEventListener('click', () => {
+        pwaInstallBtn.classList.remove('show');
+        
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    showNotification('¡App instalada correctamente!', 'success');
+                }
+                deferredPrompt = null;
+            });
+        }
+    });
+    
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    }
+}
+
+// Push notifications
+function initPushNotifications() {
+    if ('Notification' in window && 'serviceWorker' in navigator) {
+        // Request notification permission
+        if (Notification.permission === 'default') {
+            setTimeout(() => {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        showNotification('¡Notificaciones activadas! Te mantendremos informado.', 'success');
+                        
+                        // Show welcome notification
+                        setTimeout(() => {
+                            new Notification('¡Bienvenido a DDSolutions!', {
+                                body: 'Gracias por visitarnos. ¿Te ayudamos con tu transformación digital?',
+                                icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0iI2ZmMDAwMCI+PHBhdGggZD0iTTIwIDJMMzUgMTBWMzBMMjAgMzhMNSAzMFYxMEwyMCAyWiIvPjwvc3ZnPg==',
+                                badge: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0iI2ZmMDAwMCI+PHBhdGggZD0iTTIwIDJMMzUgMTBWMzBMMjAgMzhMNSAzMFYxMEwyMCAyWiIvPjwvc3ZnPg=='
+                            });
+                        }, 3000);
+                    }
+                });
+            }, 10000); // Ask after 10 seconds
+        }
+    }
+}
 
 // Multi-language support
 const translations = {
@@ -107,6 +478,9 @@ const translations = {
         nav: {
             home: "Inicio",
             services: "Servicios",
+            pricing: "Precios",
+            testimonials: "Testimonios",
+            resources: "Recursos",
             about: "Nosotros",
             contact: "Contacto"
         },
@@ -145,6 +519,32 @@ const translations = {
                 desc: "Asesoramiento experto para la transformación digital de tu empresa",
                 features: ["Arquitectura de Soluciones", "Estrategia Digital", "Optimización de Procesos"]
             }
+        },
+        metrics: {
+            title: "Impacto en Tiempo Real",
+            processes: "Procesos Automatizados",
+            hours: "Horas Ahorradas", 
+            savings: "Ahorro Generado",
+            countries: "Países Activos"
+        },
+        pricing: {
+            title: "Planes y Precios",
+            subtitle: "Soluciones adaptadas a cada etapa de tu crecimiento"
+        },
+        testimonials: {
+            title: "Lo que dicen nuestros clientes",
+            subtitle: "Casos de éxito que transforman empresas"
+        },
+        calculator: {
+            title: "Calcula tu ROI",
+            subtitle: "Descubre cuánto puedes ahorrar con automatización inteligente"
+        },
+        resources: {
+            title: "Centro de Recursos",
+            subtitle: "Conocimiento y herramientas para tu transformación digital"
+        },
+        partners: {
+            title: "Partners y Certificaciones"
         },
         about: {
             title: "Sobre DDSolutions",
@@ -194,6 +594,9 @@ const translations = {
         nav: {
             home: "Home",
             services: "Services",
+            pricing: "Pricing",
+            testimonials: "Testimonials",
+            resources: "Resources",
             about: "About",
             contact: "Contact"
         },
@@ -232,6 +635,32 @@ const translations = {
                 desc: "Expert advice for the digital transformation of your company",
                 features: ["Solution Architecture", "Digital Strategy", "Process Optimization"]
             }
+        },
+        metrics: {
+            title: "Real-Time Impact",
+            processes: "Automated Processes",
+            hours: "Hours Saved",
+            savings: "Generated Savings",
+            countries: "Active Countries"
+        },
+        pricing: {
+            title: "Plans and Pricing",
+            subtitle: "Solutions adapted to each stage of your growth"
+        },
+        testimonials: {
+            title: "What our clients say",
+            subtitle: "Success stories that transform companies"
+        },
+        calculator: {
+            title: "Calculate your ROI",
+            subtitle: "Discover how much you can save with intelligent automation"
+        },
+        resources: {
+            title: "Resource Center",
+            subtitle: "Knowledge and tools for your digital transformation"
+        },
+        partners: {
+            title: "Partners and Certifications"
         },
         about: {
             title: "About DDSolutions",
@@ -273,7 +702,7 @@ const translations = {
         footer: {
             tagline: "Transforming the future with intelligent technology",
             quickLinks: "Quick links",
-            followUs: "Follow us",
+            followUs: "Follow us",    
             rights: "All rights reserved"
         }
     },
@@ -281,6 +710,9 @@ const translations = {
         nav: {
             home: "Início",
             services: "Serviços",
+            pricing: "Preços",
+            testimonials: "Depoimentos",
+            resources: "Recursos",
             about: "Sobre",
             contact: "Contato"
         },
@@ -319,6 +751,32 @@ const translations = {
                 desc: "Assessoria especializada para a transformação digital da sua empresa",
                 features: ["Arquitetura de Soluções", "Estratégia Digital", "Otimização de Processos"]
             }
+        },
+        metrics: {
+            title: "Impacto em Tempo Real",
+            processes: "Processos Automatizados",
+            hours: "Horas Economizadas",
+            savings: "Economia Gerada",
+            countries: "Países Ativos"
+        },
+        pricing: {
+            title: "Planos e Preços",
+            subtitle: "Soluções adaptadas a cada etapa do seu crescimento"
+        },
+        testimonials: {
+            title: "O que nossos clientes dizem",
+            subtitle: "Histórias de sucesso que transformam empresas"
+        },
+        calculator: {
+            title: "Calcule seu ROI",
+            subtitle: "Descubra quanto você pode economizar com automação inteligente"
+        },
+        resources: {
+            title: "Centro de Recursos",
+            subtitle: "Conhecimento e ferramentas para sua transformação digital"
+        },
+        partners: {
+            title: "Parceiros e Certificações"
         },
         about: {
             title: "Sobre DDSolutions",
@@ -366,8 +824,6 @@ const translations = {
     }
 };
 
-let currentLang = 'es';
-
 // Detect user language based on IP geolocation
 async function detectUserLanguage() {
     try {
@@ -393,88 +849,56 @@ async function detectUserLanguage() {
 // Update page content with selected language
 function updateContent(lang) {
     const t = translations[lang];
+    if (!t) return;
     
     // Navigation
-    document.querySelector('a[href="#inicio"]').textContent = t.nav.home;
-    document.querySelector('a[href="#servicios"]').textContent = t.nav.services;
-    document.querySelector('a[href="#nosotros"]').textContent = t.nav.about;
-    document.querySelector('a[href="#contacto"]').textContent = t.nav.contact;
+    const navLinks = document.querySelectorAll('.nav-links a');
+    if (navLinks[0]) navLinks[0].textContent = t.nav.home;
+    if (navLinks[1]) navLinks[1].textContent = t.nav.services;
+    if (navLinks[2]) navLinks[2].textContent = t.nav.pricing;
+    if (navLinks[3]) navLinks[3].textContent = t.nav.testimonials;
+    if (navLinks[4]) navLinks[4].textContent = t.nav.resources;
+    if (navLinks[5]) navLinks[5].textContent = t.nav.about;
+    if (navLinks[6]) navLinks[6].textContent = t.nav.contact;
     
     // Hero section
-    document.querySelector('.hero-title .text-gradient').textContent = t.hero.title1;
-    document.querySelector('.hero-title .text-white').textContent = t.hero.title2;
-    document.querySelector('.hero-subtitle').textContent = t.hero.subtitle;
-    document.querySelector('.btn-primary').textContent = t.hero.cta1;
-    document.querySelector('.btn-secondary').textContent = t.hero.cta2;
+    const heroTitle1 = document.querySelector('.hero-title .text-gradient');
+    const heroTitle2 = document.querySelector('.hero-title .text-white');
+    if (heroTitle1) heroTitle1.textContent = t.hero.title1;
+    if (heroTitle2) heroTitle2.textContent = t.hero.title2;
     
-    // Hero stats
-    const statLabels = document.querySelectorAll('.stat-label');
-    statLabels[0].textContent = t.hero.stats.satisfaction;
-    statLabels[1].textContent = t.hero.stats.projects;
-    statLabels[2].textContent = t.hero.stats.support;
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    if (heroSubtitle) heroSubtitle.textContent = t.hero.subtitle;
     
-    // Services section
-    document.querySelector('#servicios .section-title .text-gradient').textContent = t.services.title;
-    document.querySelector('#servicios .section-subtitle').textContent = t.services.subtitle;
+    const heroBtns = document.querySelectorAll('.hero-buttons .btn');
+    if (heroBtns[0]) heroBtns[0].textContent = t.hero.cta1;
+    if (heroBtns[1]) heroBtns[1].textContent = t.hero.cta2;
     
-    // Service cards
-    const serviceCards = document.querySelectorAll('.service-card');
-    const serviceData = [t.services.ai, t.services.automation, t.services.development, t.services.consulting];
+    // Update other sections...
+    const sectionsToUpdate = [
+        { selector: '#servicios .section-title .text-gradient', text: t.services.title },
+        { selector: '#servicios .section-subtitle', text: t.services.subtitle },
+        { selector: '.metrics .section-title .text-gradient', text: t.metrics.title },
+        { selector: '#precios .section-title .text-gradient', text: t.pricing.title },
+        { selector: '#precios .section-subtitle', text: t.pricing.subtitle },
+        { selector: '#testimonios .section-title .text-gradient', text: t.testimonials.title },
+        { selector: '#testimonios .section-subtitle', text: t.testimonials.subtitle },
+        { selector: '.roi-calculator .section-title .text-gradient', text: t.calculator.title },
+        { selector: '.roi-calculator .section-subtitle', text: t.calculator.subtitle },
+        { selector: '#recursos .section-title .text-gradient', text: t.resources.title },
+        { selector: '#recursos .section-subtitle', text: t.resources.subtitle },
+        { selector: '.partners .section-title .text-gradient', text: t.partners.title },
+        { selector: '#nosotros .section-title .text-gradient', text: t.about.title },
+        { selector: '#contacto .section-title .text-gradient', text: t.contact.title },
+        { selector: '#contacto .section-subtitle', text: t.contact.subtitle }
+    ];
     
-    serviceCards.forEach((card, index) => {
-        const data = serviceData[index];
-        card.querySelector('h3').textContent = data.title;
-        card.querySelector('p').textContent = data.desc;
-        const features = card.querySelectorAll('.service-features li');
-        features.forEach((feature, i) => {
-            feature.textContent = data.features[i];
-        });
+    sectionsToUpdate.forEach(item => {
+        const element = document.querySelector(item.selector);
+        if (element && item.text) {
+            element.textContent = item.text;
+        }
     });
-    
-    // About section
-    document.querySelector('#nosotros .section-title .text-gradient').textContent = t.about.title;
-    document.querySelector('.about-text .lead').textContent = t.about.lead;
-    document.querySelector('.about-text p:nth-of-type(2)').textContent = t.about.text;
-    
-    // About features
-    const aboutFeatures = document.querySelectorAll('.feature');
-    const featureData = [t.about.features.innovation, t.about.features.security, t.about.features.global];
-    aboutFeatures.forEach((feature, index) => {
-        feature.querySelector('h4').textContent = featureData[index].title;
-        feature.querySelector('p').textContent = featureData[index].desc;
-    });
-    
-    // Contact section
-    document.querySelector('#contacto .section-title .text-gradient').textContent = t.contact.title;
-    document.querySelector('#contacto .section-subtitle').textContent = t.contact.subtitle;
-    
-    // Contact form
-    document.querySelector('label[for="name"]').textContent = t.contact.form.name;
-    document.querySelector('label[for="email"]').textContent = t.contact.form.email;
-    document.querySelector('label[for="phone"]').textContent = t.contact.form.phone;
-    document.querySelector('label[for="service"]').textContent = t.contact.form.service;
-    document.querySelector('label[for="message"]').textContent = t.contact.form.message;
-    document.querySelector('.contact-form .btn-primary').textContent = t.contact.form.send;
-    
-    // Contact info
-    const infoItems = document.querySelectorAll('.info-item h4');
-    infoItems[0].textContent = t.contact.info.email;
-    infoItems[1].textContent = t.contact.info.phone;
-    infoItems[2].textContent = t.contact.info.schedule;
-    document.querySelector('.info-item:last-child p').textContent = t.contact.info.scheduleText;
-    
-    // Footer
-    document.querySelector('.footer-brand p').textContent = t.footer.tagline;
-    document.querySelector('.footer-links h4').textContent = t.footer.quickLinks;
-    document.querySelector('.footer-social h4').textContent = t.footer.followUs;
-    document.querySelector('.footer-bottom p').textContent = `© 2024 DDSolutions.ai - ${t.footer.rights}`;
-    
-    // Update footer links
-    const footerLinks = document.querySelectorAll('.footer-links a');
-    footerLinks[0].textContent = t.nav.home;
-    footerLinks[1].textContent = t.nav.services;
-    footerLinks[2].textContent = t.nav.about;
-    footerLinks[3].textContent = t.nav.contact;
 }
 
 // Create language selector
@@ -491,44 +915,8 @@ function createLanguageSelector() {
     
     // Add to navbar
     const navWrapper = document.querySelector('.nav-wrapper');
-    navWrapper.insertBefore(langSelector, document.querySelector('.menu-toggle'));
-    
-    // Add styles
-    const style = document.createElement('style');
-    style.textContent += `
-        .language-selector {
-            margin-left: 2rem;
-        }
-        
-        #langSelect {
-            background: var(--gray-dark);
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        #langSelect:hover {
-            border-color: var(--primary-red);
-        }
-        
-        #langSelect:focus {
-            outline: none;
-            border-color: var(--primary-red);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-        }
-        
-        @media (max-width: 768px) {
-            .language-selector {
-                margin-left: auto;
-                margin-right: 1rem;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    const themeToggle = document.querySelector('.theme-toggle');
+    navWrapper.insertBefore(langSelector, themeToggle);
     
     // Handle language change
     const select = document.getElementById('langSelect');
@@ -536,6 +924,7 @@ function createLanguageSelector() {
         currentLang = e.target.value;
         localStorage.setItem('preferredLanguage', currentLang);
         updateContent(currentLang);
+        showNotification(`Idioma cambiado a ${e.target.selectedOptions[0].textContent}`, 'success');
     });
     
     return select;
@@ -561,5 +950,46 @@ async function initializeLanguage() {
     updateContent(currentLang);
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initializeLanguage);
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initializeLanguage();
+    initThemeToggle();
+    initChatbot();
+    initROICalculator();
+    initPWA();
+    initPushNotifications();
+    
+    // Update real-time metrics every 30 seconds
+    setInterval(() => {
+        metrics.processes += Math.floor(Math.random() * 10);
+        metrics.hours += Math.floor(Math.random() * 100);
+        metrics.savings += Math.floor(Math.random() * 1000);
+        
+        const processEl = document.querySelector('[data-target="15789"]');
+        const hoursEl = document.querySelector('[data-target="892345"]');
+        const savingsEl = document.querySelector('[data-target="4500000"]');
+        
+        if (processEl && processEl.classList.contains('visible')) {
+            processEl.textContent = (metrics.processes / 1000).toFixed(0) + 'K';
+        }
+        if (hoursEl && hoursEl.classList.contains('visible')) {
+            hoursEl.textContent = (metrics.hours / 1000).toFixed(0) + 'K';
+        }
+        if (savingsEl && savingsEl.classList.contains('visible')) {
+            savingsEl.textContent = '$' + (metrics.savings / 1000000).toFixed(1) + 'M';
+        }
+    }, 30000);
+});
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
