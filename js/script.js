@@ -8,6 +8,30 @@ let metrics = {
     countries: 47
 };
 
+// Premium Loading Screen
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    
+    // Hide loading screen after minimum display time
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+        
+        // Enable scroll and interactions after loading
+        document.body.style.overflow = 'auto';
+        
+        // Trigger entrance animations
+        setTimeout(() => {
+            document.querySelectorAll('.hero-content').forEach(el => {
+                el.style.animation = 'fadeInUp 1s ease forwards';
+            });
+        }, 300);
+        
+    }, 1500); // Show loading for 1.5 seconds minimum
+});
+
+// Disable scroll during loading
+document.body.style.overflow = 'hidden';
+
 // Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -54,12 +78,41 @@ contactForm?.addEventListener('submit', (e) => {
     }, 2000);
 });
 
-// Add parallax effect to hero section
+// Advanced Parallax Effects and Micro-Interactions
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
+    const scrollFactor = scrolled * 0.001;
+    
+    // Hero parallax
     const parallax = document.querySelector('.hero-bg');
     if (parallax) {
         parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+    
+    // Floating particles parallax
+    const particles = document.querySelector('.floating-particles');
+    if (particles) {
+        particles.style.transform = `translateY(${scrolled * 0.3}px) rotate(${scrollFactor * 10}deg)`;
+    }
+    
+    // Service cards tilt effect
+    document.querySelectorAll('.service-card').forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const centerY = window.innerHeight / 2;
+        const distance = rect.top + rect.height / 2 - centerY;
+        const tilt = distance * 0.01;
+        
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            card.style.transform = `perspective(1000px) rotateX(${tilt}deg) translateZ(${Math.abs(tilt) * 5}px)`;
+        }
+    });
+    
+    // Update navbar opacity based on scroll
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        const opacity = Math.min(scrolled / 100, 0.95);
+        navbar.style.background = `rgba(20, 20, 20, ${opacity})`;
+        navbar.style.backdropFilter = scrolled > 50 ? 'blur(20px)' : 'none';
     }
 });
 
@@ -1676,6 +1729,77 @@ document.addEventListener('DOMContentLoaded', () => {
             savingsEl.textContent = '$' + (metrics.savings / 1000000).toFixed(1) + 'M';
         }
     }, 30000);
+});
+
+// Premium Interactive Effects
+document.addEventListener('DOMContentLoaded', () => {
+    // Add ripple effect to buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.classList.add('ripple-effect');
+        
+        button.addEventListener('mouseenter', (e) => {
+            const rect = e.target.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            e.target.style.setProperty('--x', x + 'px');
+            e.target.style.setProperty('--y', y + 'px');
+        });
+    });
+    
+    // Enhanced card interactions
+    document.querySelectorAll('.service-card, .dept-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    });
+    
+    // Magnetic effect for interactive elements
+    document.querySelectorAll('.btn-primary').forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            element.style.transform = 'translate(0, 0) scale(1)';
+        });
+    });
+    
+    // Smooth scroll indicator
+    const scrollIndicator = document.createElement('div');
+    scrollIndicator.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-neon), #39ff5c);
+        z-index: 9999;
+        transition: width 0.1s ease;
+    `;
+    document.body.appendChild(scrollIndicator);
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        scrollIndicator.style.width = scrolled + '%';
+    });
 });
 
 // Service Worker Registration
