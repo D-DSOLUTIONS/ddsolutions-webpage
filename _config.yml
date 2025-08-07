@@ -1,0 +1,20 @@
+# GitHub Pages Configuration
+# Este archivo ayuda con la configuración de GitHub Pages
+
+# Forzar HTTPS
+enforce_ssl: ddsolutions.ai
+
+# Plugins (GitHub Pages los procesa automáticamente)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Excluir archivos del build
+exclude:
+  - README.md
+  - .git
+  - .gitignore
+
+# Dominio personalizado
+url: "https://ddsolutions.ai"
+baseurl: ""
