@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQ2RP0YJK5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TQ2RP0YJK5');
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>Test Analytics - DDSolutions</title>
+</head>
+<body>
+    <h1>Página de prueba de Google Analytics</h1>
+    <p>Esta página es para verificar que Google Analytics está funcionando correctamente.</p>
+    
+    <script>
+        // Verificar que gtag está cargado
+        window.addEventListener('load', function() {
+            if (typeof gtag === 'function') {
+                console.log('✅ Google Analytics está cargado correctamente');
+                document.body.innerHTML += '<p style="color: green;">✅ Google Analytics está funcionando</p>';
+                
+                // Enviar evento de prueba
+                gtag('event', 'test_event', {
+                    'event_category': 'testing',
+                    'event_label': 'analytics_verification'
+                });
+            } else {
+                console.log('❌ Google Analytics NO está cargado');
+                document.body.innerHTML += '<p style="color: red;">❌ Google Analytics NO está funcionando</p>';
+            }
+        });
+    </script>
+</body>
+</html>
